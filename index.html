@@ -59,28 +59,28 @@ body {font-family: Arial;}
 <h3>Fade in Tabs</h3>
 
 <div class="tab">
-  <button class="tablinks" onclick="cityopen(event, 'London')" id="defaultOpen">London</button>
-  <button class="tablinks" onclick="cityopen(event, 'Paris')">Paris</button>
-  <button class="tablinks" onclick="cityopen(event, 'Tokyo')">Tokyo</button>
+  <button class="tablinks" onclick="openCity(event, 'Home')"id="defaultOpen">Home</button>
+  <button class="tablinks" onclick="openCity(event, 'Network')">Network</button>
+  <button class="tablinks" onclick="openCity(event, 'Sentiment')">Sentiment</button>
 </div>
 
-<div id="London" class="tabcontent">
-  <h3>London</h3>
+<div id="Home" class="tabcontent">
+  <h3>Home</h3>
   <p>London is the capital city of England.</p>
 </div>
 
-<div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
+<div id="Network" class="tabcontent">
+  <h3>Network</h3>
   <p>Paris is the capital of France.</p> 
 </div>
 
-<div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
+<div id="Sentiment" class="tabcontent">
+  <h3>Sentiment</h3>
   <p>Tokyo is the capital of Japan.</p>
 </div>
 
 <script>
-function cityopen(evt, cityName) {
+function openCity(evt, cityName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
@@ -96,7 +96,6 @@ function cityopen(evt, cityName) {
   
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
-  
 </script>
    
 </body>
