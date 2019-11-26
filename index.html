@@ -59,9 +59,9 @@ body {font-family: Arial;}
 <h3>Fade in Tabs</h3>
 
 <div class="tab">
-  <button class="tablinks" onclick="open(event, 'London')" id="defaultOpen">London</button>
-  <button class="tablinks" onclick="open(event, 'Paris')">Paris</button>
-  <button class="tablinks" onclick="open(event, 'Tokyo')">Tokyo</button>
+  <button class="tablinks" onclick="cityopen(event, 'London')" id="defaultOpen">London</button>
+  <button class="tablinks" onclick="cityopen(event, 'Paris')">Paris</button>
+  <button class="tablinks" onclick="cityopen(event, 'Tokyo')">Tokyo</button>
 </div>
 
 <div id="London" class="tabcontent">
@@ -80,7 +80,7 @@ body {font-family: Arial;}
 </div>
 
 <script>
-function open(evt, cityName) {
+function cityopen(evt, cityName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
