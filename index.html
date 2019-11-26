@@ -55,20 +55,11 @@ body {font-family: Arial;}
   
 * {box-sizing: border-box;}
 	
-/* Three image containers (use 25% for four, and 50% for two, etc) */
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
-}
-
-/* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
- 
+.container {
+  position: relative;
+  width: 50%;
+  max-width: 300px;
+} 
 
 .image {
   display: block;
@@ -129,18 +120,11 @@ body {font-family: Arial;}
 
 <!-- ************* Info on code page ************* -->
 <div id="Code" class="tabcontent">
-  <dic id="mainDiv class="row">
-    <div id="img1" class="column">
+    <div id="img1" class="container">
       <a href="https://www.google.com/">
         <img src="usa_mask.jpg" alt="Avatar" class="image"> 
         <div class="overlay">Explainer notebook</div>
-    </div> 
-    <div id="img2" class="column">      
-        <img src="usa_mask.jpg" alt="Avatar" class="image"> 
-        <div class="overlay">Explainer notebook</div>
-	<a href="https://www.google.com/">		    
-    </div>  
-  <\div>    
+    </div>   
 </div>  
 
 <!-- ************************************************************************************************************* -->
