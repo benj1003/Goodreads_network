@@ -16,7 +16,7 @@ body {font-family: Arial;}
 .tab button {
   background-color: inherit;
   float: left;
-  border: none;
+  border: Solid;
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
@@ -53,28 +53,47 @@ body {font-family: Arial;}
   to {opacity: 1;}
 }
   
-.dropdown {
+* {box-sizing: border-box;}
+
+.container {
   position: relative;
-  display: inline-block;
+  width: 50%;
+  max-width: 300px;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
+.image {
   display: block;
-}  
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
 </style>
 </head>
+  
+/***************************************************************************************************************/
+/**************************************************BODY*********************************************************/
+/***************************************************************************************************************/
 <body>
 
+/************** The tabs at the top **************/
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Home')"id="defaultOpen">Home</button>
   <button class="tablinks" onclick="openCity(event, 'Network')">Network</button>
@@ -82,26 +101,35 @@ body {font-family: Arial;}
   <button class="tablinks" onclick="openCity(event, 'Code')">Code</button>
 </div>
 
+/************** Info on Home page **************/
 <div id="Home" class="tabcontent">
   <h3>Home</h3>
   <p>Text.</p>
 </div>
 
+/************** Info on Network page **************/  
 <div id="Network" class="tabcontent">
   <h3>Network</h3>
   <p>Text.</p> 
 </div>
 
+/************** Info on sentiment page **************/  
 <div id="Sentiment" class="tabcontent">
   <h3>Sentiment</h3>
   <p>Text.</p>
 </div>
-  
+
+/************** Info on code page **************/
 <div id="Code" class="tabcontent">
-  <h3>Code</h3>
-  <p>Text.</p>
+  <div class="container">
+    <img src="usa_mask.jpg" alt="Avatar" class="image">
+    <div class="overlay">Explainer notebook</div>
+  </div>
 </div>  
 
+/***************************************************************************************************************/
+/***********************************Functions used**************************************************************/
+/***************************************************************************************************************/
 <script>
 function openCity(evt, Name) {
   var i, tabcontent, tablinks;
