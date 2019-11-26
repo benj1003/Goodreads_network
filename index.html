@@ -38,37 +38,49 @@ body {font-family: Arial;}
 .tabcontent {
   display: none;
   padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 </style>
 </head>
 <body>
 
+<h3>Fade in Tabs</h3>
+
 <div class="tab">
-  <button class="tablinks" onclick="open(event, 'Home')" id="defaultOpen">Home</button>
-  <button class="tablinks" onclick="open(event, 'Network')">Network</button>
-  <button class="tablinks" onclick="open(event, 'Sentiment')">Sentiment</button>
+  <button class="tablinks" onclick="open(event, 'London')" id="defaultOpen">London</button>
+  <button class="tablinks" onclick="open(event, 'Paris')">Paris</button>
+  <button class="tablinks" onclick="open(event, 'Tokyo')">Tokyo</button>
 </div>
 
-<div id="Home" class="tabcontent">
+<div id="London" class="tabcontent">
   <h3>London</h3>
   <p>London is the capital city of England.</p>
 </div>
 
-<div id="Network" class="tabcontent">
+<div id="Paris" class="tabcontent">
   <h3>Paris</h3>
-  
   <p>Paris is the capital of France.</p> 
 </div>
 
-<div id="Sentiment" class="tabcontent">
+<div id="Tokyo" class="tabcontent">
   <h3>Tokyo</h3>
   <p>Tokyo is the capital of Japan.</p>
 </div>
 
 <script>
-function open(evt, Name) {
+function open(evt, cityName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
@@ -78,12 +90,13 @@ function open(evt, Name) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(Name).style.display = "block";
+  document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
   
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+  
 </script>
    
 </body>
