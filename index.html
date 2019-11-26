@@ -72,11 +72,8 @@ body {
 <body>
 
 <div class="navbar">
-  <div id="Home" class="tabcontent">
-    <h1>Home</h1>
-    <p>London is the capital city of England.</p>
-  </div>
-  <a href="#linktest">Network theory</a>
+  <button class="tablink" onclick="open('Home', this, 'red')" id="defaultOpen">Home</button>
+  <a href="#test">Network theory</a>
   <a href="#link">Sentiment analysis</a>
   <div class="dropdown">
     <button class="dropbtn">Medlemmer 
@@ -89,7 +86,10 @@ body {
   </div> 
 </div>
   
-
+<div id="Home" class="tabcontent">
+    <h1>Home</h1>
+    <p>London is the capital city of England.</p>
+  </div>
 
 <div id="Network" class="tabcontent">
   <h1>Network</h1>
