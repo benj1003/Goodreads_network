@@ -54,17 +54,19 @@ body {font-family: Arial;}
 }
   
 * {box-sizing: border-box;}
-  
+	
+.max-container {
+  position: relative;
+  width:100%
+  float:left;
+}
+	
 .container {
   position: relative;
   width:40%
   float:left;
 }
-  
-#mainDiv {
-		width:50%;
-    margin:auto;
-}
+ 
 
 .image {
   display: block;
@@ -125,7 +127,7 @@ body {font-family: Arial;}
 
 <!-- ************* Info on code page ************* -->
 <div id="Code" class="tabcontent">
-  <dic id="mainDiv>
+  <dic id="mainDiv class="max-container">
     <div id="img1" class="container">
       <a href="https://www.google.com/">
         <img src="usa_mask.jpg" alt="Avatar" class="image"> 
