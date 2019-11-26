@@ -85,7 +85,58 @@ body {
     </div>
   </div> 
 </div>
+  
+<div id="Home" class="tabcontent">
+  <h1>Home</h1>
+  <p>London is the capital city of England.</p>
+</div>
 
+<div id="Network" class="tabcontent">
+  <h1>Network</h1>
+  <p>Paris is the capital of France.</p> 
+</div>
+
+<div id="Sentiment" class="tabcontent">
+  <h1>Sentiment</h1>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+<div id="test" class="tabcontent">
+  <h1>test</h1>
+  <p>Oslo is the capital of Norway.</p>
+</div>  
+  
+<div id="test1" class="tabcontent">
+  <h1>test1</h1>
+  <p>Oslo is the capital of Norway.</p>
+</div>    
+  
+<button class="tablink" onclick="open('Home', this, 'red')" id="defaultOpen">Home</button>
+<button class="tablink" onclick="open('Network', this, 'green')">Network</button>
+<button class="tablink" onclick="open('Sentiment', this, 'blue')">Sentiment</button>
+<button class="tablink" onclick="open('test', this, 'orange')">test</button>
+<button class="tablink" onclick="open('test1', this, 'orange')">test1</button>
+  
+  
+<script>
+function open(cityName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(cityName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>  
+ 
 <h3>A network of books</h3>
 <p>Et eksempel på hvordan vi kan bygge hjemmesiden op med HTML.</p>
 
