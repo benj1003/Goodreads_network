@@ -128,16 +128,26 @@ body {  font-family: Arial;
 <div id="Network" class="tabcontent">
   <h3>Network</h3>
   <p>Text.</p> 	
-	<button class="tablinks" onclick="opensub(event 'Network2')">test</button>
+																		
+	<div class="tab">
+		<button class="tablinks" onclick="openCity(event, 'Home')"id="defaultOpen">Home</button>
+		<button class="tablinks" onclick="openCity(event, 'Network2')">Test</button>
+		<button class="tablinks" onclick="openCity(event, 'Sentiment')">Sentiment</button>
+		<button class="tablinks" onclick="openCity(event, 'Code')">Code</button>
+	</div>
+																															
 </div>
 																												
 <div id="Network2" class="tabcontent">
   <h3>Network</h3>
   <p>Text.</p> 	
-  <button class="tablinks" onclick="openCity(event, 'Home')"id="defaultOpen">Home</button>
-  <button class="tablinks" onclick="openCity(event, 'Network2')">Network</button>
-  <button class="tablinks" onclick="openCity(event, 'Sentiment')">Sentiment</button>
-  <button class="tablinks" onclick="openCity(event, 'Code')">Code</button>
+
+	<div class="tab">
+		<button class="tablinks" onclick="openCity(event, 'Home')"id="defaultOpen">Home</button>
+		<button class="tablinks" onclick="openCity(event, 'Network')">Network</button>
+		<button class="tablinks" onclick="openCity(event, 'Sentiment')">Sentiment</button>
+		<button class="tablinks" onclick="openCity(event, 'Code')">Code</button>
+	</div>
 																													
 	<p>eigen.</p> 																												
 </div>																													
@@ -154,7 +164,7 @@ body {  font-family: Arial;
 	<p>Text. <a href="https://github.com/benj1003/Goodreads_network/tree/master/Code">Source code</a></p>	
 	
     <div id="img1" class="container">
-      <a href="https://github.com/benj1003/Goodreads_network/blob/master/Code/Final%20project.ipynb">
+      <a href="https://github.com/benj1003/Goodreads_network/blob/master/Code/Final%20project.ipynb">	
         <img src="Images/Explainer_notebook.PNG" alt="Explainer notebook" class="image"> 
         <div class="overlay">Click to open the Explainer notebook</div>
     </div>   
