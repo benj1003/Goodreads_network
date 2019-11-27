@@ -124,49 +124,21 @@ body {  font-family: Arial;
   <p>Text.</p> 
 	
 	<div id="Images" class="cont">
-		<div class="tab">
-			<button class="tablinks" onclick="openCity(event, 'Degree')"id="defaultOpen">Degree</button>
-			<button class="tablinks" onclick="openCity(event, 'Betweeness centrality')">Betweeness centrality</button>
-			<button class="tablinks" onclick="openCity(event, 'Eigenvector centrality')">Eigenvector centrality</button>
-
-	<div id="degree">
-			 <h3>test<\h3>
-	<\div>
-	<div id="Betweeness centrality">
-			 <h3>test<\h3>
-	<\div>
-	<div id="Eigenvector centrality">
-			 <h3>test<\h3>
+		<ul class="tabs">   <!-- Add tabs here -->
+			<li><a href="#tab2-1">Tab2-1</a></li>
+			<li><a href="#tab2-2">Tab2-2</a></li>
+    		</ul>
+    		<div id="tab2-1">
+        		<p>test 1</p>
+    		</div>
+    		<div id="tab2-2">
+        		<p>test 2</p>
+    		</div>
 	<\div>
 	
 </div>
 
-
-			
-<div id="Betweeness centrality" class="tabcontent">
-  <h3>Home</h3>
-  <p>Text.</p>
-	<div id="Images" class="cont">
-		<div class="tab">
-			<button class="tablinks" onclick="openCity(event, 'Degree')"id="defaultOpen">Degree</button>
-			<button class="tablinks" onclick="openCity(event, 'Betweeness centrality')">Betweeness centrality2</button>
-			<button class="tablinks" onclick="openCity(event, 'Eigenvector centrality')">Eigenvector centrality</button>
-</div>
-			
-<div id="Eigenvector centrality" class="tabcontent">
-  <h3>Home</h3>
-  <p>Text.</p>
-	<div id="Images" class="cont">
-		<ul class="tab">
-			<li><a href="#Degree">Degree</a></li>
-        		<li><a href="#Eigenvector centrality">Eigenvector centrality</a></li>
-		<\ul>
-	<div id="Degree">
-  	<h3>Home</h3>
- 		<p>Text.</p>
-	</div>
-</div>
-			
+		
 <!-- ************* Info on sentiment page ************* -->
 <div id="Sentiment" class="tabcontent">
   <h3>Sentiment</h3>
