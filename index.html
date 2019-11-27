@@ -60,9 +60,15 @@ body {  font-family: Arial;
 }
   
 * {box-sizing: border-box;}
+
+.cont {
+	position:relative;
+	width:80%;
+	margin-left: auto;
+  margin-right: auto
+	}
 	
 .container {
-	
   position: relative;
   width: 50%;
   max-width: 400px;
@@ -117,7 +123,7 @@ body {  font-family: Arial;
   <h3>Network</h3>
   <p>Text.</p> 
 	
-	<div id="Images" class="container" style=width:80%;text-align:center;>
+	<div id="Images" class="cont">
 		<div class="tab">
 			<button class="tablinks" onclick="openCity(event, 'Degree')"id="defaultOpen">Degree</button>
 			<button class="tablinks" onclick="openCity(event, 'Betweeness centrality')">Betweeness centrality</button>
