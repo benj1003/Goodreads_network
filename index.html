@@ -116,6 +116,13 @@ body {  font-family: Arial;
 <div id="Home" class="tabcontent">
   <h3>Home</h3>
   <p>Text.</p>
+	
+	<button class="tablinks" onclick="opensub(event, 'test')">test</button>
+	
+	<div id="test" class="tabcontent>
+		<p>Text.</p>
+	<\div>
+	
 </div>
 
 <!-- ************* Info on Network page ************* --> 
@@ -167,6 +174,11 @@ function openCity(evt, Name) {
 }
 	
 function opensub(evt, Name) {
+	var i, tabcontent
+	tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
 	document.getElementById(Name).style.display = "block";
   evt.currentTarget.className += " active";
 }
