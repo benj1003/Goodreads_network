@@ -117,11 +117,10 @@ body {  font-family: Arial;
   <h3>Home</h3>
   <p>Text.</p>
 	
-	<button class="tablinks" onclick="opensub(event, 'test')">test</button>
+	<button class="tablinks" onclick="opensub(event, 'Home', 'test')">test</button>
 	
 	<div id="test" class="tabcontent>
 		<p>Text.</p>
-	<\div>
 	
 </div>
 
@@ -129,12 +128,19 @@ body {  font-family: Arial;
 <div id="Network" class="tabcontent">
   <h3>Network</h3>
   <p>Text.</p> 	
-	<button class="tablinks" onclick="opensub(event, 'test')">test</button>
-	
-	<div id="test">
-		<p>Text.</p>
-	<\div>
+	<button class="tablinks" onclick="opensub(event 'Network2')">test</button>
 </div>
+																												
+<div id="Network2" class="tabcontent">
+  <h3>Network</h3>
+  <p>Text.</p> 	
+  <button class="tablinks" onclick="openCity(event, 'Home')"id="defaultOpen">Home</button>
+  <button class="tablinks" onclick="openCity(event, 'Network2')">Network</button>
+  <button class="tablinks" onclick="openCity(event, 'Sentiment')">Sentiment</button>
+  <button class="tablinks" onclick="openCity(event, 'Code')">Code</button>
+																													
+	<p>eigen.</p> 																												
+</div>																													
 
 		
 <!-- ************* Info on sentiment page ************* -->
@@ -173,15 +179,23 @@ function openCity(evt, Name) {
   evt.currentTarget.className += " active";
 }
 	
-function opensub(evt, Name) {
-	var i, tabcontent
-	tabcontent = document.getElementsByClassName("tabcontent");
+function openCity(evt, Name, Name2) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
-	document.getElementById(Name).style.display = "block";
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }	
+  document.getElementById(Name).style.display = "block";
   evt.currentTarget.className += " active";
 }
+	document.getElementById(Name2).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+					  
   
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
