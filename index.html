@@ -4,9 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {  font-family: Arial;
-	align:center;
 }
 
+.full_container {
+	width:600px;
+	text-align:center;
+	}
+	
 /* Style the tab */
 .tab {
   overflow: hidden;
@@ -47,6 +51,7 @@ body {  font-family: Arial;
 /* Fade in tabs */
 @-webkit-keyframes fadeEffect {
   from {opacity: 0;}
+	
   to {opacity: 1;}
 }
 
@@ -61,7 +66,7 @@ body {  font-family: Arial;
   position: relative;
   width: 50%;
   max-width: 400px;
-  align:center;
+	text-align:center;
 } 
 
 .image {
@@ -94,7 +99,7 @@ body {  font-family: Arial;
 <!-- *************************************************BODY******************************************************** -->
 <!-- ************************************************************************************************************* -->
 <body>
-
+<div class="full_container">
 <!-- ************* The tabs at the top ************* -->
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Home')"id="defaultOpen">Home</button>
@@ -131,6 +136,8 @@ body {  font-family: Arial;
         <div class="overlay">Click to open the Explainer notebook</div>
     </div>   
 </div>  
+	
+<\div>
 
 <!-- ************************************************************************************************************* -->
 <!-- **********************************Functions used************************************************************* -->
