@@ -128,7 +128,7 @@ body {  font-family: Arial;
   <h3>Network</h3>
   <p>Text.</p> 	
 	<div class="cont">
-  		<div class="tab">
+  		<div class="tab" style=width:33.33%;>
 				<button class="tablinks" onclick="openCity(event, 'Degree')"id="defaultOpen">Degree</button>
 				<button class="tablinks" onclick="openCity(event, 'Between')">Between</button>
 				<button class="tablinks" onclick="openCity(event, 'Eigen')">Eigen</button>
@@ -140,7 +140,7 @@ body {  font-family: Arial;
   <h3>Network2</h3>
   <p>Text.</p> 	
 	<div class="cont">
-  		<div class="tab">
+  		<div class="tab" style=width:33.33%;>
 				<button class="tablinks" onclick="openCity(event, 'Degree')"id="defaultOpen">Degree</button>
 				<button class="tablinks" onclick="openCity(event, 'Between')">Between</button>
 				<button class="tablinks" onclick="openCity(event, 'Eigen')">Eigen</button>
@@ -180,16 +180,6 @@ function openCity(evt, Name) {
     tabcontent[i].style.display = "none";
   }
   tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }	
-  document.getElementById(Name).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-	
-function openSub(evt,Name) {
-	var i, tablinks
-	tablinks = document.getElementsByClassName("tablinks");
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }	
