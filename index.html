@@ -97,6 +97,11 @@ body {  font-family: Arial;
 .container:hover .overlay {
   opacity: 1;
 }
+	
+.tab_content { background:#fff;padding:10px;width:100% }
+.tabs li { display:inline;list-style:none }
+.tabs a { background:#7c7c7c;color:#dadada;display:inline-block }
+.tabs a.active { background:#e32d2d;color:#fff }
 </style>
 </head>
   
@@ -124,26 +129,26 @@ body {  font-family: Arial;
   <h3>Network</h3>
   <p>Text.</p> 	
 	<div class="cont">
-  		<div class="tab">
-			<button class="tablinks" onclick="openCity(event, 'Home')"id="defaultOpen">Home</button>
-			<button class="tablinks" onclick="openCity(event, 'NetworkDegree')">NetworkDegree</button>
-			<button class="tablinks" onclick="openCity(event, 'Sentiment')">Sentiment</button>
-			<button class="tablinks" onclick="openCity(event, 'Code')">Code</button>
-			</div>							  
-</div>	
-	
-<div id="NetworkDegree" class="tabcontent">
-  <h3>Network</h3>
-  <p>Text.</p> 	
-	<div class="cont">
-  		<div class="tab">
-			<button class="tablinks" onclick="openCity(event, 'Home')"id="defaultOpen">Home</button>
-			<button class="tablinks" onclick="openCity(event, 'NetworkDegree')">NetworkDegree</button>
-			<button class="tablinks" onclick="openCity(event, 'Sentiment')">Sentiment</button>
-			<button class="tablinks" onclick="openCity(event, 'Code')">Code</button>
-			</div>
-																													
-		<p>eigen.</p> 								  
+  		<ul class="tabs">
+		    <li><a href="#tab1">Podcasts</a></li>
+		    <li><a href="#tab2">Videos</a></li>
+		</ul>
+		<div id="tab1" class="tab_content">
+		    <p>test</p>
+		</div>
+		<div id="tab2" class="tab_content">
+		    <ul class="tabs">   <!-- Add tabs here -->
+			<li><a href="#tab2-1">Tab2-1</a></li>
+			<li><a href="#tab2-2">Tab2-2</a></li>
+		    </ul>
+		    <div id="tab2-1">
+			<p>test 1</p>
+		    </div>
+		    <div id="tab2-2">
+			<p>test 2</p>
+		    </div>
+		<\div>
+	</div>							  
 </div>	
 																																																							
 
@@ -182,7 +187,43 @@ function openCity(evt, Name) {
   }	
   document.getElementById(Name).style.display = "block";
   evt.currentTarget.className += " active";
-}				  
+}
+	
+jQuery('ul.tabs').each(function(){
+    // For each set of tabs, we want to keep track of
+    // which tab is active and it's associated content
+    var $active, $content, $links = jQuery(this).find('a');
+
+    // If the location.hash matches one of the links, use that as the active tab.
+    // If no match is found, use the first link as the initial active tab.
+    $active = jQuery($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+    $active.addClass('active');
+
+    $content = $($active[0].hash);
+
+    // Hide the remaining content
+    $links.not($active).each(function () {
+        jQuery(this.hash).hide();
+    });
+
+    // Bind the click event handler
+    jQuery(this).on('click', 'a', function(e){
+        // Make the old tab inactive.
+        $active.removeClass('active');
+        $content.hide();
+
+        // Update the variables with the new link and content
+        $active = jQuery(this);
+        $content = jQuery(this.hash);
+
+        // Make the tab active.
+        $active.addClass('active');
+        $content.show();
+
+        // Prevent the anchor's default click action
+        e.preventDefault();
+    });
+});
   
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
