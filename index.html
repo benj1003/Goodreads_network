@@ -239,12 +239,12 @@ div.c {
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigen')">Eigen</button>
 			</div>
 		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~eling/8.embed?showlink=false" height="400" width="800"></iframe> 
-		<p> 	In this illustration the nodesize is set proportional to each nodes betweenness centrality, which 
-			is a measure of how likely it is that given to random nodes in the network, the shortest path between
-			them passes through the node. In this illustration it is even more clear how influential 
-			Harry Potter and the Deathly Hallows it to the network. With a betweenness centrality of 0.0161 it has more 
-			than double as high betweenness centrality than the second highest and more than 250 times higher than the
-			average.
+		<p> 	In this illustration the nodesize is set proportional to each nodes eigenvector, which
+			is also an indicator for how influential a node is. A node gets a high eigenvector centrality score 
+			if its neighboring node also have a high score. Very interestingly the illustration shows that the network does not
+			have any nodes scoring very high eigenvector centrality. This is because almost all books recomend the same books, and 
+			thus acording to eigenvector centrality all the books have equal influence, which is though not true (see degree and 
+			betweenness centrality).
 		</p>
 	</div>	
   <h3>Network</h3>
