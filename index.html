@@ -72,6 +72,18 @@ body {  font-family: Arial;
   position: relative;
   max-width: 400px;
 } 
+.column {
+  float: left;
+  width:45%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 
 .image {
   display: block;
@@ -96,6 +108,10 @@ body {  font-family: Arial;
 .container:hover .overlay {
   opacity: 1;
 }
+
+.column:hover .overlay {
+  opacity: 1;
+}
 	
 .tab_content { background:#fff;padding:10px;width:100% }
 .tabs li { display:inline;list-style:none }
@@ -117,23 +133,8 @@ div.c {
 * {
   box-sizing: border-box;
 }
-
-.column {
-  float: left;
-  width:45%;
-  padding: 5px;
-}
-
-/* Clearfix (clear floats) */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
 	
-.column:hover .overlay {
-  opacity: 1;
-}
+
 </style>
 </head>
   
@@ -233,12 +234,14 @@ div.c {
     		<a href="https://github.com/benj1003/Goodreads_network/blob/master/Code/Final%20project.ipynb">	
         <img src="Images/Explainer_notebook.PNG" alt="Explainer notebook" class="image"> 
         <div class="overlay">Click to open the Explainer notebook</div>
-  		</div>
+			<div/>
+  	</div>
   	<div class="column">
 	  	<div id="img2" class="container">
-    		<a href="https://github.com/benj1003/Goodreads_network/blob/master/Code/Final%20project.ipynb">	
-        <img src="Images/Explainer_notebook.PNG" alt="Explainer notebook" class="image"> 
+    		<a href="https://www.w3schools.com/tags/att_body_background.asp">	
+        <img src="usa_mask.jpg" alt="Explainer notebook" class="image"> 
         <div class="overlay">Click to open the Explainer notebook</div>
+			<div/>
   	</div>
 	</div>	
 </div>  
@@ -258,7 +261,7 @@ function openCity(evt, Name) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }	
-  document.getElementById(Name).style.display = "block";
+  document.getElementById(Name).style.display = "block";	
   evt.currentTarget.className += " active";
 }
 
