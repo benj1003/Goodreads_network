@@ -198,7 +198,7 @@ div.c {
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigen')">Eigen</button>
 			</div>
 		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~eling/8.embed?showlink=false" height="400" width="800"></iframe> 
-		<p> In this illustration the nodesize is set proportional to each nodes total indegree. This means that the 
+		<p> 	In this illustration the nodesize is set proportional to each nodes total indegree. This means that the 
 			larger the node more frequent the book is recomended. For example we see Harry Potter and the Deathly 
 			Hallows has an indegree of 527.This means that Harry Potter and the Deathly Hallows is recommended for 
 			69.16% of the books on the list. </p>
@@ -216,7 +216,34 @@ div.c {
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Between')">Between</button>
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigen')">Eigen</button>
 			</div>
-		<p> lidt om eigen </p>
+		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~eling/8.embed?showlink=false" height="400" width="800"></iframe> 
+		<p> 	In this illustration the nodesize is set proportional to each nodes betweenness centrality, which 
+			is a measure of how likely it is that given to random nodes in the network, the shortest path between
+			them passes through the node. In this illustration it is even more clear how influential 
+			Harry Potter and the Deathly Hallows it to the network. With a betweenness centrality of 0.0161 it has more 
+			than double as high betweenness centrality than the second highest and more than 250 times higher than the
+			average.
+		</p>
+	</div>							  
+</div>	
+
+<div id="Eigen" class="tabcontent">
+  <h3>Network</h3>
+  <p>Text.</p> 	
+	<div class="cont">
+  		<div class="tab">
+				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Network')"id="defaultOpen">Degree</button>
+				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Between')">Between</button>
+				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigen')">Eigen</button>
+			</div>
+		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~eling/8.embed?showlink=false" height="400" width="800"></iframe> 
+		<p> 	In this illustration the nodesize is set proportional to each nodes betweenness centrality, which 
+			is a measure of how likely it is that given to random nodes in the network, the shortest path between
+			them passes through the node. In this illustration it is even more clear how influential 
+			Harry Potter and the Deathly Hallows it to the network. With a betweenness centrality of 0.0161 it has more 
+			than double as high betweenness centrality than the second highest and more than 250 times higher than the
+			average.
+		</p>
 	</div>							  
 </div>	
 																																																							
@@ -237,9 +264,9 @@ div.c {
         			<div class="overlay">Click to open the Explainer notebook</div>
   		</div>
   		<div class="column" id="img2">
-    				<a href="https://www.w3schools.com/tags/att_body_background.asp">	
-        			<img src="Images/usa_mask.jpg" alt="Link to code folder" class="image"> 
-        			<div class="overlay">Click to open the Explainer2 notebook</div>
+    				<a href="https://github.com/benj1003/Goodreads_network/tree/master/Code">	
+        			<img src="Github folder.png" alt="Link to code folder" class="image"> 
+        			<div class="overlay">Click to go to code folder</div>
   		</div>
 	</div>	
 </div>  
