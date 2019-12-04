@@ -303,7 +303,7 @@ div.c {
 	
 	<p> Other than degree, we also have other ways to quantify how influential a node is to the network. We have investigated
 		the network with regards to betweenness centrality and eigenvector centrality. Betweenness centrality is a meassure 
-		of how many shortest paths passses through a given node. For our network a high betweenness centrality would indicate 
+<		of how many shortest paths passses through a given node. For our network a high betweenness centrality would indicate 
 		a gateway book, meaning if you read book A you may not be recommended book B, but you get recommended book C. 
 		Book C will then recommend you book B, and the only reason you read book B is therefore because you also read book C. 
 		This makes book C very influential. Eigenvector centrality is also an indicator for how influential a node is. 
@@ -347,6 +347,17 @@ div.c {
 	<p> With the genres we have now, we can investigate how well our hyphothesis holds using a modularity score. This is a score 
 		ranging from -1 to 1 indicating how well the hypothesized communities, actually are small communities in the network. 
 	 	The closer to 1 the better the partition. </p>
+	<p> Partitioning on genre the modularity score for the network is <u> 0.53 </u>.  </p>
+	<p> This is considered a high score, but to actually tell something about how good partitioning on genre is, you must investigate 
+		how well it is possible to partition your network. There are several algorithms that does this. One of them is the louvrain algorithm, 
+		which based on the network identifies the best fitting communities. </p>
+	<p> The modularity score found by the algorithm is 0.75 (based on 12 communities), which is much higher than when partitioning on
+		genre. However as the confusion matrix below illustrates that each genre is almost entirely represented in one community found 
+		by the louvain algorithm. </p>
+	<h3> indsæt confusion matrix </h3>
+	<p> It is therefore true that books are mainly recommended other books within the same genre, and therefore to some extend limits 
+		readers to one sub-category of books.</p>
+		
 	
 	
 </div>	
