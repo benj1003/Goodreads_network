@@ -211,7 +211,7 @@ div.c {
 	referred to as negative books. This list contains 416 books. </p>
 	
 	<p> Due to limited time we have not been able to acquire all the data. Therefore we have limited the number of books, which we 
-	have scraped the information on to be 2,026 from the positive list and and all 416 from the negative list. </p>
+	have scraped the information on to be 1,917 from the positive list and and all 416 from the negative list. </p>
 	<p> Here is a table illustrating the structure of the data for five books </p>
 	
 	<table border="1" class="dataframe">
@@ -286,7 +286,18 @@ div.c {
 <!-- ************* Info on Network page ************* --> 
 <div id="Network" class="tabcontent">
   <h2>Network</h2>
-  <p>Text.</p> 	
+  <p>We have created a network, where each of the books from the possitive list is a node and where two nodes are connected
+	if one books has the other under the section 'Readers also enjoyed'. We have created the network as a directed network.
+	This means that a node is only connected to the nodes it recomends - not the nodes that recomends that node.</p> 
+	<p> We hereby get a network of 1,917 nodes and 10,001 edges. </p>
+	<p> With the network we investigate the degree distribution, which basically means that we investigate how many times each book 
+		has been recomended. The node with the highest degree (and thereby is the most recomended) is Harry Potter and the Deathly Hallows 
+		with degree 535. This means that Harry Potter and the Deathly Hallows is recommended for 25.95% of the books 
+		on the list. The average degree is 10.43, and thus it is more than 10 times more likely that harry potter is recommended than
+		an average book. The figure underneath illustrates the degree distribution for all the books in the positive list. 
+		It illustrates that few books have a very large degree while the majority of the books are have a degree under 50. 
+		This indicates that there are a few select books that gets recommended for almost every other book on the list. </p>
+	
 	<div class="cont">
   		<div class="tab">
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Network')">Degree</button>
