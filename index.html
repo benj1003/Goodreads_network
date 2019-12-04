@@ -294,23 +294,48 @@ div.c {
 		has been recomended. The node with the highest degree (and thereby is the most recomended) is Harry Potter and the Deathly Hallows 
 		with degree 535. This means that Harry Potter and the Deathly Hallows is recommended for 25.95% of the books 
 		on the list. The average degree is 10.43, and thus it is more than 10 times more likely that harry potter is recommended than
-		an average book. The figure underneath illustrates the degree distribution for all the books in the positive list. 
+		an average book. </p>
+	<p> The figure underneath illustrates the degree distribution for all the books in the positive list. 
 		It illustrates that few books have a very large degree while the majority of the books are have a degree under 50. 
 		This indicates that there are a few select books that gets recommended for almost every other book on the list. </p>
+	
+	<h3> Indsæt degree dist figure </h3>
+	
+	<p> Other than degree, we also have other ways to quantify how influential a node is to the network. We have investigated
+		the network with regards to betweenness centrality and eigenvector centrality. Betweenness centrality is a meassure 
+		of how many shortest paths passses through a given node. For our network a high betweenness centrality would indicate 
+		a gateway book, meaning if you read book A you may not be recommended book B, but you get recommended book C. 
+		Book C will then recommend you book B, and the only reason you read book B is therefore because you also read book C. 
+		This makes book C very influential. Eigenvector centrality is also an indicator for how influential a node is. 
+		A node gets a high score if its neighboring node also have a high score. This would for our network mean that a node
+		with a high eigenvector centrality is being recomended by other books that many other books recomend.
+		A book with high degree but low eigenvector centrality could therefore be a book that is recommended alot, 
+		but these are not them self are recomended very few times. </p>
+
+	<p> Here the network is shown, where the nodesize for each node representing the book is set proportional to the degree, 
+		betweenness centrality and eigenvector centrality respectively. You can choose which one you want to see by selecting
+		each one. If you hover over the illustrations you are able to see what book each node represents - you can also
+		zoom in on the images etc. </p>
 	
 	<div class="cont">
   		<div class="tab">
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Network')">Degree</button>
-				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Between')">Between</button>
-				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigen')">Eigen</button>
+				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Between')">Betweenness</button>
+				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigen')">Eigenvector</button>
 			</div>
-		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Plots/test.html" height="600" width="600"></iframe> 		<p> 	In this illustration the nodesize is set proportional to each nodes total indegree. This means that the 
+		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Plots/test.html" height="600" width="600"></iframe> 
+		<p> 	In this illustration the nodesize is set proportional to each nodes total indegree. This means that the 
 			larger the node more frequent the book is recomended. For example we see Harry Potter and the Deathly 
-			Hallows has an indegree of 527.This means that Harry Potter and the Deathly Hallows is recommended for 
-			69.16% of the books on the list. </p>
+			Hallows has an indegree of 535. </p>
 	</div>	
-	<h3>Network</h3>
-  <p>Text.</p> 
+	
+	<p> In the table below we see the 10 nodes with highest degree and the corresponding measures. </p>
+	<h3> insert table </h3)
+	<p> Some interesting remarks can be made from the table above. Looking at entry 8 we see that even though it has 
+		a smaller degree than 6 the betweenness centrality meassure is almost 10 times bigger. This indicates that 
+		"The Elephant Tree" tends to be recommeneded through fewer iterations than "Watership Down" do. Further, 
+		it is noticed that "The Elephant Tree" at enty 8 has a higher eigenvector centrality than all others on the list. 
+		This shows that "The Elephant Tree" recommends the popular books more. </p>
 </div>	
 	
 <div id="Between" class="tabcontent">
