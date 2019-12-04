@@ -323,7 +323,7 @@ div.c {
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Between')">Betweenness</button>
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigen')">Eigenvector</button>
 			</div>
-		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Plots/test.html" height="800" width="900"></iframe> 
+		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Plots/test.html" height="700" width="750"></iframe> 
 		<p> 	In this illustration the nodesize is set proportional to each nodes total indegree. This means that the 
 			larger the node more frequent the book is recomended. For example we see Harry Potter and the Deathly 
 			Hallows has an indegree of 535. </p>
@@ -336,6 +336,19 @@ div.c {
 		"The Elephant Tree" tends to be recommeneded through fewer iterations than "Watership Down" do. Further, 
 		it is noticed that "The Elephant Tree" at enty 8 has a higher eigenvector centrality than all others on the list. 
 		This shows that "The Elephant Tree" recommends the popular books more. </p>
+	
+	<h3> Communities based on genre </h3>
+	<p> We have now seen that some books does get recomended much more than the average book and therefore could be classified as 
+		highly influential in the literary society. But now lets turn our attention to investigate if the network contains 
+		clear groups - in network theory called communities. Our hypothesis was that a book is more likely to be recomended
+		by another book if they are in the same genre, and thus each genre would be a small community in the network. </p>
+	<p> From the list of books we have 66 different genres. However some of then only consists of 1 book. We have therefore 
+		only considered the 15 largest and collected the books in the others in a new genre calles Miscellaneous </p>
+	<p> With the genres we have now, we can investigate how well our hyphothesis holds using a modularity score. This is a score 
+		ranging from -1 to 1 indicating how well the hypothesized communities, actually are small communities in the network. 
+	 	The closer to 1 the better the partition. </p>
+	
+	
 </div>	
 	
 <div id="Between" class="tabcontent">
