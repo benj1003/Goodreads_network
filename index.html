@@ -154,6 +154,7 @@ div.c {
 
 <!-- ************* Info on Home page ************* -->
 <div id="Home" class="tabcontent">
+	<h1> Some big title </h1>
 	<div class="a">
 		<p><em>Ever finished the greatest book ever and wondered “what’s next?” </em></p>
 	</div>
@@ -208,12 +209,77 @@ div.c {
 	To create the sentiment analysis we also needed poorly rated books. These we obtained from
 	<a href="https://www.goodreads.com/list/show/23974.Worst_Rated_Books_on_Goodreads">Worst Rated Books on Goodreads</a>	 
 	referred to as negative books. This list contains 416 books. </p>
+	
+	<p> Due to limited time we have not been able to acquire all the data. Therefore we have limited the number of books, which we 
+	have scraped the information on to be 2,026 from the positive list and and all 416 from the negative list. </p>
+	<p> Here is a table illustrating the structure of the data for five books </p>
+	
+	<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>author</th>
+      <th>genre</th>
+      <th>rating</th>
+      <th>rating_count</th>
+      <th>related</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>To Kill a Mockingbird</td>
+      <td>Harper Lee</td>
+      <td>Classics</td>
+      <td>4.27</td>
+      <td>4058926</td>
+      <td>[Harry Potter and the Deathly Hallows, Lord of the Flies, The Handmaid's Tale, A Wrinkle in Time, Anna Karenina, Through the Looking-Glass and What Alice Found There, Speak, Watership Down, Sherlock Holmes: The Complete Novels and Stories, Volume II, Where'd You Go, Bernadette, The Underground Railroad, His Dark Materials, White Oleander, The Caine Mutiny, The Prophet, A Tree Grows in Brooklyn, The Painted Bird, Anne of Green Gables, Go Set a Watchman]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Harry Potter and the Sorcerer's Stone</td>
+      <td>J.K. Rowling</td>
+      <td>Fantasy</td>
+      <td>4.47</td>
+      <td>6186514</td>
+      <td>[Lord of the Flies, A Wrinkle in Time, Speak, The Handmaid's Tale, Through the Looking-Glass and What Alice Found There, In the Hand of the Goddess, Watership Down, Where'd You Go, Bernadette, Abhorsen, The Hero and the Crown, Beyond the Valley of Thorns, White Oleander, The Shifting Sands, Henry and the Clubhouse, His Dark Materials, The Adventures of Sherlock Holmes, Other Worlds, The Waterless Sea, Harry Potter and the Chamber of Secrets, Harry Potter and the Prisoner of Azkaban, Harry Potter and the Goblet of Fire, Harry Potter and the Order of the Phoenix, Harry Potter and the Half-Blood Prince, Harry Potter and the Deathly Hallows]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Pride and Prejudice</td>
+      <td>Jane Austen</td>
+      <td>Classics</td>
+      <td>4.25</td>
+      <td>2662196</td>
+      <td>[Harry Potter and the Deathly Hallows, Lord of the Flies, Anna Karenina, A Wrinkle in Time, Through the Looking-Glass and What Alice Found There, The Handmaid's Tale, Sherlock Holmes: The Complete Novels and Stories, Volume II, Speak, Anne of the Island, Watership Down, The Scarlet Pimpernel, These Three Remain, Sylvester, Wuthering Heights &amp; Jane Eyre, A Room with a View, The Phantom of Pemberley, White Oleander]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>The Diary of a Young Girl</td>
+      <td>Anne Frank</td>
+      <td>Nonfiction</td>
+      <td>4.13</td>
+      <td>2474246</td>
+      <td>[Lord of the Flies, Harry Potter and the Deathly Hallows, A Wrinkle in Time, The Handmaid's Tale, Speak, Anna Karenina, Through the Looking-Glass and What Alice Found There, White Oleander, Where'd You Go, Bernadette, The Little Engine That Could, The Complete Anne of Green Gables Boxed Set, Watership Down, Upon the Head of the Goat: A Childhood in Hungary 1939-1944, The Holocaust Chronicle, Let Me Go, The Greatest Generation Speaks: Letters and Reflections, All Things Wise and Wonderful, The Incredible Journey]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1984</td>
+      <td>George Orwell</td>
+      <td>Classics</td>
+      <td>4.17</td>
+      <td>2711604</td>
+      <td>[Lord of the Flies, Harry Potter and the Deathly Hallows, The Handmaid's Tale, A Wrinkle in Time, Anna Karenina, Watership Down, Through the Looking-Glass and What Alice Found There, Speak, The Prophet, 2001: A Space Odyssey, The Underground Railroad, Armageddon in Retrospect: And Other New and Unpublished Writings on War and Peace, One Flew Over the Cuckoo's Nest, Second Foundation, His Dark Materials, White Oleander, Where'd You Go, Bernadette, The Hitchhiker's Guide to the Galaxy: A Trilogy in Four Parts]</td>
+    </tr>
+  </tbody>
+</table>	
 
 </div>	
 
 <!-- ************* Info on Network page ************* --> 
 <div id="Network" class="tabcontent">
-  <h3>Network</h3>
+  <h2>Network</h2>
   <p>Text.</p> 	
 	<div class="cont">
   		<div class="tab">
