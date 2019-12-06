@@ -93,7 +93,8 @@ body {  font-family: Arial;
 	margin-left: auto;
   margin-right: auto;
   display: block;
-  width:50%;
+  width:100%;
+	max-width = 500px;
 	}
 	
 .image {
@@ -335,7 +336,7 @@ div.c {
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Between')">Betweenness</button>
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigen')">Eigenvector</button>
 			</div>
-		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Plots/test.html" height="700" width=100%></iframe> 
+		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/G_degree.html" height="700" width=100%></iframe> 
 		<p> 	In this illustration the nodesize is set proportional to each nodes total indegree. This means that the 
 			larger the node more frequent the book is recomended. For example we see Harry Potter and the Deathly 
 			Hallows has an indegree of 535. </p>
@@ -383,7 +384,7 @@ div.c {
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Between')">Between</button>
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigen')">Eigen</button>
 			</div>
-		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Plots/test.html" height="600" width="600"></iframe> 		<p> 	In this illustration the nodesize is set proportional to each nodes betweenness centrality, which 
+		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/G_between.html" height="600" width=100%></iframe> 		<p> 	In this illustration the nodesize is set proportional to each nodes betweenness centrality, which 
 			is a measure of how likely it is that given to random nodes in the network, the shortest path between
 			them passes through the node. In this illustration it is even more clear how influential 
 			Harry Potter and the Deathly Hallows it to the network. With a betweenness centrality of 0.0161 it has more 
@@ -404,7 +405,7 @@ div.c {
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Between')">Between</button>
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigen')">Eigen</button>
 			</div>
-		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Plots/test.html" height="600" width="600"></iframe> 
+		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/G_eigen.html" height="600" width=100%></iframe> 
 		<p> 	In this illustration the nodesize is set proportional to each nodes eigenvector, which
 			is also an indicator for how influential a node is. A node gets a high eigenvector centrality score 
 			if its neighboring node also have a high score. Very interestingly the illustration shows that the network does not
