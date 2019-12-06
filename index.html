@@ -443,10 +443,11 @@ div.c {
 		
 <!-- ************* Info on sentiment page ************* -->
 <div id="Sentiment" class="tabcontent">
-  <h3>Text Analysis</h3>
+  <h2>Text Analysis</h2>
   <p>On Goodreads users are able to write reviews on the books and many do. We have investigated these rewievs with 
 	  general word prevalence and sentiment analysis. We have used the list of positive books and the list og
 	  negative books and investigated the differences in the two groups, as well as each book individually.</p>
+	<h4> Word prevalence </h4>
 	<p> We have investigated the word prevalance using the TD-IDF score (term frequency–inverse document frequency), which is a 
 	  measure of the amount times a word appears in the document and is offset by the number of documents in the groups 
 	  that contain the word, which helps to adjust for the fact that some words appear more frequently in general. </p>
@@ -463,6 +464,19 @@ div.c {
         			<div class="overlay">Negative book list</div>
   		</div>
 	</div>	
+	
+	<h4> Sentiment analysis </h4>
+	<p> We have further investigated the reviews with sentiment analysis, which is a quantifiable measure of how positive text is. 
+		This is done by a lexicon approach, where we use the LabMT wordlist. This wordlist is generated using the Amazon Mechanical 
+	Turn, which is a service enabling researchers and businesses to get a manuel labels on datasets. 
+	Each review has been assigned a score, which has enabled us to generate sentiment distributions for the positive book list
+		and negative book list respectively and hereby compare the two lists. </p>
+	
+	<div class="smallimage" id="img1">
+        			<img src="Images/usa_mask.jpg" alt="Sentiment distributions " class="image"> 
+        			<div class="overlay">Sentiment distributions</div>
+  		</div>
+	
 	
 </div>
 
