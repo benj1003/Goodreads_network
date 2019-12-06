@@ -6,7 +6,9 @@
 body {  font-family: Arial;
 	margin-left: auto;
   	margin-right: auto;
-  	width: 70%;
+  	width: 100%;
+	max-width: 1000px;
+	
 }
 	
 /* Style the tab */
@@ -333,7 +335,7 @@ div.c {
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Between')">Betweenness</button>
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigen')">Eigenvector</button>
 			</div>
-		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Plots/test.html" height="700" width="750"></iframe> 
+		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Plots/test.html" height="700" width=100%></iframe> 
 		<p> 	In this illustration the nodesize is set proportional to each nodes total indegree. This means that the 
 			larger the node more frequent the book is recomended. For example we see Harry Potter and the Deathly 
 			Hallows has an indegree of 535. </p>
