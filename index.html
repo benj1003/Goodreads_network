@@ -148,7 +148,29 @@ div.c {
 * {
   box-sizing: border-box;
 }
-	
+
+#table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#table td, #table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#table tr:nth-child(even){background-color: #f2f2f2;}
+
+#table tr:hover {background-color: #ddd;}
+
+#table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}	
 
 </style>
 </head>
@@ -227,7 +249,7 @@ div.c {
 	have scraped the information on to be 1,917 from the positive list and and all 416 from the negative list. </p>
 	<p> Here is a table illustrating the structure of the data for five books </p>
 	
-	<table border="1" class="dataframe">
+	<table border="1" class="table">
   <thead>
     <tr style="text-align: right;">
       <th></th>
