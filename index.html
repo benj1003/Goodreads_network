@@ -161,7 +161,7 @@ div.c {
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Home')"id="defaultOpen">Home</button>
   <button class="tablinks" onclick="openCity(event, 'Network')">Network</button>
-  <button class="tablinks" onclick="openCity(event, 'Sentiment')">Sentiment</button>
+  <button class="tablinks" onclick="openCity(event, 'Sentiment')">Text Analysis</button>
   <button class="tablinks" onclick="openCity(event, 'Code')">Code</button>
 </div>
 
@@ -422,8 +422,27 @@ div.c {
 		
 <!-- ************* Info on sentiment page ************* -->
 <div id="Sentiment" class="tabcontent">
-  <h3>Sentiment</h3>
-  <p>Text.</p>
+  <h3>Text Analysis</h3>
+  <p>On Goodreads users are able to write reviews on the books and many do. We have investigated these rewievs with 
+	  general word prevalence and sentiment analysis. We have used the list of positive books and the list og
+	  negative books and investigated the differences in the two groups, as well as each book individually.</p>
+	<p> We have investigated the word prevalance using the TD-IDF score (term frequency–inverse document frequency), which is a 
+	  measure of the amount times a word appears in the document and is offset by the number of documents in the groups 
+	  that contain the word, which helps to adjust for the fact that some words appear more frequently in general. </p>
+	<p> Here you see two wordclouds that represents the word prevalance for the posivite book list and the negative book list
+		respectively </p>
+	
+	<div class="row">
+  		<div class="column" id="img1">
+        			<img src="Images/usa_mask.jpg" alt="Link to explainer notebook" class="image"> 
+        			<div class="overlay">Positive book list</div>
+  		</div>
+  		<div class="column" id="img2">
+        			<img src="Images/usa_mask.jpg" alt="Link to code folder" class="image"> 
+        			<div class="overlay">Negative book list</div>
+  		</div>
+	</div>	
+	
 </div>
 
 <!-- ************* Info on code page ************* -->
@@ -449,7 +468,7 @@ div.c {
 <script>
 function openCity(evt, Name) {
   var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
+  tabcontent = document.getElementsByClassName("tabcontent");  
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }	
