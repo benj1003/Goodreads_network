@@ -434,7 +434,7 @@ div.c {
 			thus acording to eigenvector centrality all the books have equal influence, which is though not true (see degree and 
 			betweenness centrality).
 		</p>
-	</div>	
+	</div>	 
   <h3>Network</h3>
   <p>Text.</p> 	
 </div>	
@@ -444,15 +444,22 @@ div.c {
 <!-- ************* Info on sentiment page ************* -->
 <div id="Sentiment" class="tabcontent">
   <h2>Text Analysis</h2>
-  <p>On Goodreads users are able to write reviews on the books and many do. We have investigated these rewievs with 
-	  general word prevalence and sentiment analysis. We have used the list of positive books and the list og
-	  negative books and investigated the differences in the two groups, as well as each book individually.</p>
-	<h4> Word prevalence </h4>
-	<p> We have investigated the word prevalance using the TD-IDF score (term frequency–inverse document frequency), which is a 
-	  measure of the amount times a word appears in the document and is offset by the number of documents in the groups 
-	  that contain the word, which helps to adjust for the fact that some words appear more frequently in general. </p>
-	<p> Here you see two wordclouds that represents the word prevalance for the posivite book list and the negative book list
-		respectively </p>
+  <p>On Goodreads users are able to write reviews on the books and many do. We have investigated these rewievs using sentiment
+	  analysis and further investigated the word precalence of those classified as very positive and very negative 
+	  respectively. Comparing each books sentiment score with the ratings we have investigated if how well these match. </p>
+	<p> In the text analysis, we have included the books from the negative book list. The analysis therefore consists of books
+		both with very high average rating and very low average rating. <p>
+	<h4> Sentiment </h4>
+	We have first investigated the reviews with sentiment analysis, which is a method of quantifying how positive a text is. 
+	We have used the VADER (Valence Aware Dictionary and sEntiment Reasoner) sentiment, which is a lexicon and rule-based 
+	sentiment analysis tool that is specifically attuned to sentiments expressed in social media. Though the reviews are different
+	than text from social media, many of the main features are the same and we have therefore identified this method to be the 
+	most appropriate.</p>
+	<p> Here you see the distribution of sentiment score. We have grouped the books the the positive list and the books from the
+		negative list to provide an initial expression of wheter ratings and sentiment match.</p>
+	<img src="Images/usa_mask.jpg" alt="Sentiment distributions" class="image"> 
+    <div class="overlay">Positive book list</div>
+
 	
 	<div class="row">
   		<div class="column" id="img1">
