@@ -221,31 +221,29 @@ div.c {
       	<img src="Images/goodreads.png" alt="Network (Image)" class="smallimage" > 
 	
 	<h3> About the project </h3>
-	<p> On this page you can explore our main findings from investigating how one books is related with the books that 
-	are recommended on the books site on Goodreads, an online database of books. We have investigated if 
-	the list of recommendations on highly popular books creates a network, where the same book is recommended all the 
-	time making them highly influential in the literary society. We have further investigated if books are mainly recommended 
+	<p> On this page you can explore our main findings from investigating how one book is related with the books that 
+	are recommended on on Goodreads, an online database of books. We have investigated if 
+	the list of recommendations creates a network, where the same book is recommended all the 
+	time making some books highly influential in the literary society. We have further investigated if books are mainly recommended 
 	other books within the same genre, which could limit readers to one sub-category of books. Read about this under the section
 	'Network'. </p>
 	<p> In addition to investigating the relationsship between books, we have investigated how correlated a books rating is, 
 	with the sentiment score of the book reviews. Our hypothesis was that highly rating books have a higher sentiment score in 
 	the reviews than a poorly rated book. The network analysis and sentiment analysis is be tied together when investigating 
-	whether the influential nodes in the notebook are also some of the books with highest rating/sentiment or if it is something 
+	whether the most influential books in the network are also some of the books with highest sentiment or if it is something 
 	else that drives the high degree nodes. Read about this under the section 'Sentiment'.
 		
 	<h3> Datasets </h3>
-	<p> The information about the books are as mentioned taken from Goodreads. Goodreads is chosen as it holds 
+	<p> The information about the books are as mentioned retrieved from Goodreads. Goodreads is chosen as it holds 
 	information about almost every book and therefore creates a good platform to generate uniform data across the 
 	list of books. Goodreads further contains reviews of each book, which are crucial for second part of the analysis. </p>
 	
 	<p> The books chosen are taken from the list <a href="https://www.goodreads.com/list/show/264.Books_That_Everyone_Should_Read_At_Least_Once">"Books Everyone Should Read At Least Once"</a> 
-	referred to throughout this page as positive books. The list contains 21.618 books (However we have only scraped around 2.000). 
+	referred to throughout this page as positive books. The list contains 21.618 books (However we have only retrieved around 2.000). 
 	To create the sentiment analysis we also needed poorly rated books. These we obtained from
 	<a href="https://www.goodreads.com/list/show/23974.Worst_Rated_Books_on_Goodreads">Worst Rated Books on Goodreads</a>	 
-	referred to as negative books. This list contains 416 books. </p>
-	
-	<p> Due to limited time we have not been able to acquire all the data. Therefore we have limited the number of books, which we 
-	have scraped the information on to be 1,917 from the positive list and and all 416 from the negative list. </p>
+	referred to as negative books. This list contains 416 books, which are all retrieved. </p>
+
 	<p> Here is a table illustrating the structure of the data for five books </p>
 	
 	<table border="1" id="table">
@@ -313,7 +311,14 @@ div.c {
 	    <td> Reviews as strings </td>
     </tr>
   </tbody>
-</table>	
+</table>
+
+	<h3> Disclaimer </h3>
+	<p> Due to limited time and limited compute power, the analysis that is the basis for the results presented on this website
+	is based on a limited dataset. In the network section 1,978 books are used and only recomendations to other books in this
+	list are considered. In the text-analysis section a subset of 450 books from the books used in the network section as well
+	as 450 low rated books are used. For each book we have only retrieved 15 reviews. This may affect the results, but
+	we will not comment further on this. </p>
 
 </div>	
 
