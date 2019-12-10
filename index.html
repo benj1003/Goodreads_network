@@ -381,19 +381,28 @@ div.c {
 		highly influential in the literary society. But now lets turn our attention to investigate if the network contains 
 		clear groups - in network theory called communities. Our hypothesis was that a book is more likely to be recomended
 		by another book if they are in the same genre, and thus each genre would be a small community in the network. </p>
-	<p> From the list of books we have 66 different genres. However some of then only consists of 1 book. We have therefore 
-		only considered the 15 largest and collected the books in the others in a new genre calles Miscellaneous </p>
-	<p> With the genres we have now, we can investigate how well our hyphothesis holds using a modularity score. This is a score 
+	<p> From the list of books we have 66 different genres. However many of the genres consists of very few books. 
+		We have therefore 
+		only considered the 15 largest and collected the books in the others in a new genre called "Miscellaneous". </p>
+	<p> With the updated genrelist, we have investigate how well our hyphothesis holds using a modularity score. This is a score 
 		ranging from -1 to 1 indicating how well the hypothesized communities, actually are small communities in the network. 
-	 	The closer to 1 the better the partition. </p>
+	 	The closer to 1 the better the partition is. </p>
 	<p> Partitioning on genre the modularity score for the network is <u> 0.53 </u>.  </p>
 	<p> This is considered a high score, but to actually tell something about how good partitioning on genre is, you must investigate 
 		how well it is possible to partition your network. There are several algorithms that does this. One of them is the louvrain algorithm, 
 		which based on the network identifies the best fitting communities. </p>
-	<p> The modularity score found by the algorithm is 0.75 (based on 12 communities), which is much higher than when partitioning on
-		genre. However as the confusion matrix below illustrates that each genre is almost entirely represented in one community found 
-		by the louvain algorithm. </p>
+	<p> From the confusion matrix we see that the algorithm does output communities that are consistent with the genres 
+		and thus genre seems like a good representative of communities, considering the network. We do, however, see that the 
+		modularity score is increased a lot (froom 0.33 to 0.68) when using the Louvrain algorithm. </p>
+	
 	<img src="Images/usa_mask.jpg" alt="Confusion matrix (image)" class="smallimage" > 
+	
+	<p> We remind our self that the network consists nodes with very high degree, which may influence the results heavily, 
+		as these most likely are recommended by books from all genres. We investigate if this is the case by considering a subgraph, 
+		where the nodes in the top 1 percentile degree are removed. </p>
+		
+	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/G_degree.html" height="700" width=100%></iframe> 
+	
 	<p> It is therefore true that books are mainly recommended other books within the same genre, and therefore to some extend limits 
 		readers to one sub-category of books.</p>
 		
