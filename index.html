@@ -364,7 +364,7 @@ div.c {
 		It illustrates that few books have a very large degree while the majority of the books have a degree under 50. 
 		This indicates that there are a few select books that gets recommended for almost every other book on the list. </p>
 	
-	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/Degree_dist.html" height="700" width=80%></iframe> 
+	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/Degree_dist.html" height="700" width=100%></iframe> 
 	
 	<p> Other than degree, we also have other ways to quantify how influential a node is to the network. We have investigated
 		the network with regards to betweenness centrality and eigenvector centrality. Betweenness centrality is a meassure 
@@ -375,7 +375,7 @@ div.c {
 		A node gets a high score if its neighboring node also have a high score. This would for our network mean that a node
 		with a high eigenvector centrality is being recomended by other books that many other books recomend.
 		A book with high degree but low eigenvector centrality could therefore be a book that is recommended alot, 
-		but these are not them self are recomended very few times. </p>
+		but the books recommending it are not themselves recommended often. </p>
 
 	<p> Here the network is shown, where the nodesize for each node representing the book is set proportional to the degree, 
 		betweenness centrality and eigenvector centrality respectively. You can choose which one you want to see by selecting
@@ -385,8 +385,8 @@ div.c {
 	<div class="cont">
   		<div class="tab">
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Network')">Degree</button>
-				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Between')">Betweenness</button>
-				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigen')">Eigenvector</button>
+				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Betweenness')">Betweenness</button>
+				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigenvector')">Eigenvector</button>
 			</div>
 		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/G_degree.html" height="700" width=100%></iframe> 
 		<p> 	In this illustration the nodesize is set proportional to each nodes total indegree. This means that the 
@@ -399,8 +399,8 @@ div.c {
 	<p> Some interesting remarks can be made from the table above. Looking at entry 8 we see that even though it has 
 		a smaller degree than 6 the betweenness centrality meassure is almost 10 times bigger. This indicates that 
 		"The Elephant Tree" tends to be recommeneded through fewer iterations than "Watership Down" do. Further, 
-		it is noticed that "The Elephant Tree" at enty 8 has a higher eigenvector centrality than all others on the list. 
-		This shows that "The Elephant Tree" recommends the popular books more. </p>
+		it is noticed that "The Elephant Tree" at entry 8 has a higher eigenvector centrality than all others on the list. 
+		This shows that "The Elephant Tree" recommends books that themselves are recommended OBS OBS. </p>
 	
 	<h3> Communities based on genre </h3>
 	<p> We have now seen that some books does get recomended much more than the average book and therefore could be classified as 
