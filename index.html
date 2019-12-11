@@ -252,9 +252,9 @@ div.c {
 	referred to throughout this page as positive books. The list contains 21.618 books (However we have only retrieved around 2.000). 
 	To create the sentiment analysis we also needed poorly rated books. These we obtained from
 	<a href="https://www.goodreads.com/list/show/23974.Worst_Rated_Books_on_Goodreads">Worst Rated Books on Goodreads</a>	 
-	referred to as negative books. This list contains 416 books, which are all retrieved. </p>
+	referred to as negative books. This list contains 416 books, of which we were able to retrieve 394. </p>
 
-	<p> Here is a table illustrating the structure of the data for five books </p>
+	<p> The information known about each book is illustrated in the table below.  </p>
 	
 	<table border="1" id="table">
   <thead>
@@ -322,7 +322,24 @@ div.c {
     </tr>
   </tbody>
 </table>
-
+	<p> From all the books scraped we see that the book with the highest rating "Otuna's Flute" with a whopping 5 star
+	average rating. The books on the oppostite side of the scale is "Dark Rooms" which has to settle for an 
+	average rating of 3.1. Looking at all the books the average rating of the average rating (stick with us here) is 4.01.
+	</p>
+	
+	<p> They ratings do not differ much from book to book, but the number of ratings each book has received is very different.
+		The book with the highest rating count is "Harry Potter and the Sorcerer's Stone" which 6,186,514 people 
+		have taken the time to rate. The least rated book is on the other hand "A Debt Free You", that only 12 people 
+		shared an opinion about. 
+	</p>
+	
+	<p> Goodreads also has alot of different genres. The total number of represented genres in our dataset is 66.
+		As some of the analysis will be investigting how the book recommend within genre, 66 different classes are bit 
+		too much. We have therefore decided to take the largest 15 genres and combine the remaining genres in a combined 
+		group called "Miscellaneous". 
+	</p>
+	
+	
 	<h3> Disclaimer </h3>
 	<p> Due to limited time and limited compute power, the analysis that is the basis for the results presented on this website
 	is based on a limited dataset. In the network section 1,978 books are used and only recomendations to other books in this
