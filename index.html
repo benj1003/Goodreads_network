@@ -540,8 +540,38 @@ div.c {
 </div>	
 	
 <div id="Betweenness" class="tabcontent">
-  <h3>Network</h3>
-  <p>Text.</p> 	
+  <h2>Network</h2>
+  <p>We have created a network, where each of the books from the positive list is a node and where two nodes are connected
+	if one books has the other under the section 'Readers also enjoyed'. We have created the network as a directed network.
+	This means that a node is only connected to the nodes it recomends - not the nodes that recomends that node.</p> 
+	<p> We hereby get a network of 1,917 nodes and 9,898 edges. </p>
+	<p> With the network we investigate the degree distribution, which basically means that we investigate how many times each book 
+		has been recomended. The node with the highest degree (and thereby is the most recomended) is "Harry Potter and the Deathly Hallows" 
+		with degree 535. This means that "Harry Potter and the Deathly Hallows" is recommended for 25.95% of the books 
+		on the list. The average degree is 10.43, and thus it is 10 times more likely that Harry Potter is recommended than
+		an average book. </p>
+	<p> The figure underneath illustrates the degree distribution for all the books in the positive list. 
+		It illustrates that few books have a very large degree while the majority of the books have a degree under 50. 
+		This indicates that there are a few select books that gets recommended for almost every other book on the list. </p>
+	
+	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/Degree_dist.html" height="700" width=100%></iframe> 
+	
+	<p> Other than degree, we also have other ways to quantify how influential a node is to the network. We have investigated
+		the network with regards to betweenness centrality and eigenvector centrality. Betweenness centrality is a meassure 
+		of how many shortest paths passses through a given node. For our network a high betweenness centrality would indicate 
+		a gateway book, meaning if you read book A you may not be recommended book B, but you get recommended book C. 
+		Book C will then recommend you book B, and the only reason you read book B is therefore because you also read book C. 
+		This makes book C very influential. Eigenvector centrality is also an indicator for how influential a node is. 
+		A node gets a high score if its neighboring node also have a high score. This would for our network mean that a node
+		with a high eigenvector centrality is being recomended by other books that many other books recomend.
+		A book with high degree but low eigenvector centrality could therefore be a book that is recommended alot, 
+		but the books recommending it are not themselves recommended often. </p>
+
+	<p> Here the network is shown, where the nodesize for each node representing the book is set proportional to the degree, 
+		betweenness centrality and eigenvector centrality respectively. You can choose which one you want to see by selecting
+		each one. If you hover over the illustrations you are able to see what book each node represents - you can also
+		zoom in on the images etc. </p>
+	
 	<div class="cont">
   		<div class="tab">
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Network')"id="defaultOpen">Degree</button>
@@ -556,13 +586,178 @@ div.c {
 			average.
 		</p>
 	</div>	
-  <h3>Network</h3>
-  <p>Text.</p> 	
+	
+	<p> In the table below we see the 10 nodes with highest degree and the corresponding measures. </p>
+	<table border="1" id="table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Degree</th>
+      <th>Eigenvector centrality</th>
+      <th>Betweenness centrality</th>
+      <th>genre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Harry Potter and the Deathly Hallows</td>
+      <td>535</td>
+      <td>0.003696</td>
+      <td>0.129558</td>
+      <td>Fantasy</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Lord of the Flies</td>
+      <td>516</td>
+      <td>0.001204</td>
+      <td>0.170643</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>The Handmaid's Tale</td>
+      <td>369</td>
+      <td>0.001102</td>
+      <td>0.023199</td>
+      <td>Fiction</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>A Wrinkle in Time</td>
+      <td>322</td>
+      <td>0.000863</td>
+      <td>0.002166</td>
+      <td>Fantasy</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Anna Karenina</td>
+      <td>283</td>
+      <td>0.000846</td>
+      <td>0.040024</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Speak</td>
+      <td>187</td>
+      <td>0.000735</td>
+      <td>0.002563</td>
+      <td>Young Adult</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Watership Down</td>
+      <td>169</td>
+      <td>0.000873</td>
+      <td>0.000861</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>White Oleander</td>
+      <td>147</td>
+      <td>0.000962</td>
+      <td>0.005379</td>
+      <td>Fiction</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>The Elephant Tree</td>
+      <td>110</td>
+      <td>0.030922</td>
+      <td>0.008324</td>
+      <td>Miscellaneous</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>The Zombie Room</td>
+      <td>96</td>
+      <td>0.013046</td>
+      <td>0.000897</td>
+      <td>Miscellaneous</td>
+    </tr>
+  </tbody>
+</table>
+	<p> A few interesting remarks can be made from the table above. Looking at entry 8 we see that even though it has a 
+		smaller degree than entry 6 the betweenness centrality measure is almost 10 times bigger. 
+		 <br />This indicates that "The Elephant Tree" tends to be recommended through fewer iterations than 
+		"Watership Down" do. Further, it is noticed that "The Elephant Tree" at entry 8 has a higher eigenvector-centrality 
+		than all others on the list. This shows that the books that recomends "The Elephant Tree" are them self recomended 
+		a lot. </p>
+	
+	<h3> Communities based on genre </h3>
+	<p> We have now seen that some books does get recomended much more than the average book and therefore could be classified as 
+		highly influential in the literary society. But now lets turn our attention to investigate if the network contains 
+		clear groups - in network theory called communities. Our hypothesis was that a book is more likely to be recomended
+		by another book if they are in the same genre, and thus each genre would be a small community in the network. </p>
+	<p> From the list of books we have 66 different genres. However as mentionedmany of the genres consists of very few books. 
+		We have therefore only considered the 15 largest and collected the books in the others in a new genre called 
+		"Miscellaneous". </p>
+	<p> With the updated genrelist, we have investigated how well our hyphothesis holds using a modularity score. This is a score 
+		ranging from -1 to 1 indicating how well the hypothesized communities, actually are small communities in the network. 
+	 	The closer to 1 the better the partition is. </p>
+	<p> Partitioning on genre the modularity score for the network is <u> 0.38 </u>.  </p>
+	<p> This is considered a high score, but to actually tell something about how good partitioning on genre is, you must investigate 
+		how well it is possible to partition your network. There are several algorithms that does this. One of them is the louvrain algorithm, 
+		which based on the network identifies the best fitting communities. </p>
+	<p> From the confusion matrix we see that the algorithm does output communities that are consistent with the genres 
+		and thus genre seems like a good representative of communities, considering the network. We do, however, see that the 
+		modularity score is increased a lot (froom 0.38 to 0.51) when using the Louvrain algorithm, which suggest that some 
+		influencial nodes don't represent their genre in the optimal communities.. </p>
+	
+	<div class="cont2"
+		<img src="Code/Plots/Confusion_full.png" alt="Confusion matrix (image)" class="smallimage" > 
+	</div>
+	
+	<p> We remind our self that the network consists nodes with very high degree, which may influence the results heavily, 
+		as these most likely are recommended by books from all genres. We investigate if this is the case by considering a subgraph, 
+		where the nodes in the top 1 percentile degree are removed. </p>
+		
+	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/G_degree_new.html" height="700" width=100%></iframe> 
+	
+	<p> On this network it is very clear to se that there are communities based on genre, which is supported by an 
+		increased modularity. To say that books generally recommends books within the same genre and therefore to 
+		some extend limits readers within a sub-category, is not wrong. </p>
+
 </div>	
 
 <div id="Eigenvector" class="tabcontent">
-  <h3>Network</h3>
-  <p>Text.</p> 	
+  <h2>Network</h2>
+  <p>We have created a network, where each of the books from the positive list is a node and where two nodes are connected
+	if one books has the other under the section 'Readers also enjoyed'. We have created the network as a directed network.
+	This means that a node is only connected to the nodes it recomends - not the nodes that recomends that node.</p> 
+	<p> We hereby get a network of 1,917 nodes and 9,898 edges. </p>
+	<p> With the network we investigate the degree distribution, which basically means that we investigate how many times each book 
+		has been recomended. The node with the highest degree (and thereby is the most recomended) is "Harry Potter and the Deathly Hallows" 
+		with degree 535. This means that "Harry Potter and the Deathly Hallows" is recommended for 25.95% of the books 
+		on the list. The average degree is 10.43, and thus it is 10 times more likely that Harry Potter is recommended than
+		an average book. </p>
+	<p> The figure underneath illustrates the degree distribution for all the books in the positive list. 
+		It illustrates that few books have a very large degree while the majority of the books have a degree under 50. 
+		This indicates that there are a few select books that gets recommended for almost every other book on the list. </p>
+	
+	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/Degree_dist.html" height="700" width=100%></iframe> 
+	
+	<p> Other than degree, we also have other ways to quantify how influential a node is to the network. We have investigated
+		the network with regards to betweenness centrality and eigenvector centrality. Betweenness centrality is a meassure 
+		of how many shortest paths passses through a given node. For our network a high betweenness centrality would indicate 
+		a gateway book, meaning if you read book A you may not be recommended book B, but you get recommended book C. 
+		Book C will then recommend you book B, and the only reason you read book B is therefore because you also read book C. 
+		This makes book C very influential. Eigenvector centrality is also an indicator for how influential a node is. 
+		A node gets a high score if its neighboring node also have a high score. This would for our network mean that a node
+		with a high eigenvector centrality is being recomended by other books that many other books recomend.
+		A book with high degree but low eigenvector centrality could therefore be a book that is recommended alot, 
+		but the books recommending it are not themselves recommended often. </p>
+
+	<p> Here the network is shown, where the nodesize for each node representing the book is set proportional to the degree, 
+		betweenness centrality and eigenvector centrality respectively. You can choose which one you want to see by selecting
+		each one. If you hover over the illustrations you are able to see what book each node represents - you can also
+		zoom in on the images etc. </p>
+	
 	<div class="cont">
   		<div class="tab">
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Network')"id="defaultOpen">Degree</button>
@@ -576,8 +771,144 @@ div.c {
 			have any nodes scoring very high eigenvector centrality. This is because almost all books recomend the same books, and 
 			thus acording to eigenvector centrality all the books have equal influence. </p>
 	</div>	 
-  <h3>Network</h3>
-  <p>Text.</p> 	
+	
+	<p> In the table below we see the 10 nodes with highest degree and the corresponding measures. </p>
+	<table border="1" id="table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Degree</th>
+      <th>Eigenvector centrality</th>
+      <th>Betweenness centrality</th>
+      <th>genre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Harry Potter and the Deathly Hallows</td>
+      <td>535</td>
+      <td>0.003696</td>
+      <td>0.129558</td>
+      <td>Fantasy</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Lord of the Flies</td>
+      <td>516</td>
+      <td>0.001204</td>
+      <td>0.170643</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>The Handmaid's Tale</td>
+      <td>369</td>
+      <td>0.001102</td>
+      <td>0.023199</td>
+      <td>Fiction</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>A Wrinkle in Time</td>
+      <td>322</td>
+      <td>0.000863</td>
+      <td>0.002166</td>
+      <td>Fantasy</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Anna Karenina</td>
+      <td>283</td>
+      <td>0.000846</td>
+      <td>0.040024</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Speak</td>
+      <td>187</td>
+      <td>0.000735</td>
+      <td>0.002563</td>
+      <td>Young Adult</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Watership Down</td>
+      <td>169</td>
+      <td>0.000873</td>
+      <td>0.000861</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>White Oleander</td>
+      <td>147</td>
+      <td>0.000962</td>
+      <td>0.005379</td>
+      <td>Fiction</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>The Elephant Tree</td>
+      <td>110</td>
+      <td>0.030922</td>
+      <td>0.008324</td>
+      <td>Miscellaneous</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>The Zombie Room</td>
+      <td>96</td>
+      <td>0.013046</td>
+      <td>0.000897</td>
+      <td>Miscellaneous</td>
+    </tr>
+  </tbody>
+</table>
+	<p> A few interesting remarks can be made from the table above. Looking at entry 8 we see that even though it has a 
+		smaller degree than entry 6 the betweenness centrality measure is almost 10 times bigger. 
+		 <br />This indicates that "The Elephant Tree" tends to be recommended through fewer iterations than 
+		"Watership Down" do. Further, it is noticed that "The Elephant Tree" at entry 8 has a higher eigenvector-centrality 
+		than all others on the list. This shows that the books that recomends "The Elephant Tree" are them self recomended 
+		a lot. </p>
+	
+	<h3> Communities based on genre </h3>
+	<p> We have now seen that some books does get recomended much more than the average book and therefore could be classified as 
+		highly influential in the literary society. But now lets turn our attention to investigate if the network contains 
+		clear groups - in network theory called communities. Our hypothesis was that a book is more likely to be recomended
+		by another book if they are in the same genre, and thus each genre would be a small community in the network. </p>
+	<p> From the list of books we have 66 different genres. However as mentionedmany of the genres consists of very few books. 
+		We have therefore only considered the 15 largest and collected the books in the others in a new genre called 
+		"Miscellaneous". </p>
+	<p> With the updated genrelist, we have investigated how well our hyphothesis holds using a modularity score. This is a score 
+		ranging from -1 to 1 indicating how well the hypothesized communities, actually are small communities in the network. 
+	 	The closer to 1 the better the partition is. </p>
+	<p> Partitioning on genre the modularity score for the network is <u> 0.38 </u>.  </p>
+	<p> This is considered a high score, but to actually tell something about how good partitioning on genre is, you must investigate 
+		how well it is possible to partition your network. There are several algorithms that does this. One of them is the louvrain algorithm, 
+		which based on the network identifies the best fitting communities. </p>
+	<p> From the confusion matrix we see that the algorithm does output communities that are consistent with the genres 
+		and thus genre seems like a good representative of communities, considering the network. We do, however, see that the 
+		modularity score is increased a lot (froom 0.38 to 0.51) when using the Louvrain algorithm, which suggest that some 
+		influencial nodes don't represent their genre in the optimal communities.. </p>
+	
+	<div class="cont2"
+		<img src="Code/Plots/Confusion_full.png" alt="Confusion matrix (image)" class="smallimage" > 
+	</div>
+	
+	<p> We remind our self that the network consists nodes with very high degree, which may influence the results heavily, 
+		as these most likely are recommended by books from all genres. We investigate if this is the case by considering a subgraph, 
+		where the nodes in the top 1 percentile degree are removed. </p>
+		
+	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/G_degree_new.html" height="700" width=100%></iframe> 
+	
+	<p> On this network it is very clear to se that there are communities based on genre, which is supported by an 
+		increased modularity. To say that books generally recommends books within the same genre and therefore to 
+		some extend limits readers within a sub-category, is not wrong. </p>
+
+	
 </div>	
 																																																							
 
