@@ -330,7 +330,7 @@ div.c {
 	<p> They ratings do not differ much from book to book, but the number of ratings each book has received is very different.
 		The book with the highest rating count is "Harry Potter and the Sorcerer's Stone" which 6,186,514 people 
 		have taken the time to rate. The least rated book is on the other hand "A Debt Free You", that only 12 people 
-		shared an opinion about. 
+		shared an opinion about. On average the books in the dataset has a rating count of 200,106.80. 
 	</p>
 	
 	<p> Goodreads also has alot of different genres. The total number of represented genres in our dataset is 66.
@@ -351,20 +351,20 @@ div.c {
 <!-- ************* Info on Network page ************* --> 
 <div id="Network" class="tabcontent">
   <h2>Network</h2>
-  <p>We have created a network, where each of the books from the possitive list is a node and where two nodes are connected
+  <p>We have created a network, where each of the books from the positive list is a node and where two nodes are connected
 	if one books has the other under the section 'Readers also enjoyed'. We have created the network as a directed network.
 	This means that a node is only connected to the nodes it recomends - not the nodes that recomends that node.</p> 
 	<p> We hereby get a network of 1,917 nodes and 10,001 edges. </p>
 	<p> With the network we investigate the degree distribution, which basically means that we investigate how many times each book 
-		has been recomended. The node with the highest degree (and thereby is the most recomended) is Harry Potter and the Deathly Hallows 
-		with degree 535. This means that Harry Potter and the Deathly Hallows is recommended for 25.95% of the books 
-		on the list. The average degree is 10.43, and thus it is more than 10 times more likely that harry potter is recommended than
+		has been recomended. The node with the highest degree (and thereby is the most recomended) is "Harry Potter and the Deathly Hallows" 
+		with degree 535. This means that "Harry Potter and the Deathly Hallows" is recommended for 25.95% of the books 
+		on the list. The average degree is 10.43, and thus it is 10 times more likely that Harry Potter is recommended than
 		an average book. </p>
 	<p> The figure underneath illustrates the degree distribution for all the books in the positive list. 
-		It illustrates that few books have a very large degree while the majority of the books are have a degree under 50. 
+		It illustrates that few books have a very large degree while the majority of the books have a degree under 50. 
 		This indicates that there are a few select books that gets recommended for almost every other book on the list. </p>
 	
-	<img src="Images/usa_mask.jpg" alt="Degree distribution (image)" class="smallimage" > 
+	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/Degree_dist.html" height="700" width=80%></iframe> 
 	
 	<p> Other than degree, we also have other ways to quantify how influential a node is to the network. We have investigated
 		the network with regards to betweenness centrality and eigenvector centrality. Betweenness centrality is a meassure 
