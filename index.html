@@ -575,6 +575,24 @@ div.c {
 			of actual slavery? It can't - this book is absolute trash. " </em></p>
 	</div>
 	
+	<p> This concludes the major investigations of sentiment in the reviews. The extreme cases of sentiment catch
+		reviews that are highly polar but creating TFIDF conditioned on overall sentiment did not appear to give 
+		useful divisions of the two groups. 
+		The hypothesis was that calculating the TFIDF of the positively scored books would highlight 
+		very positive words, as these are more likely in that group. The conclusion is though, that the words 
+		caught by the TFIDF seem to be more differentiated than that. 
+	</p>
+	<p> The general idea was that using sentiment analysis the rating of a books could be somewhat predicted, as 
+		sentiment analysis on other kind of reviews have proven very effective. Our results could indicate that 
+		this approach is made difficult when the object of the review is text as well. In this case the reviews 
+		often contain quotes are descriptions of the books, and if the book itself carry a low sentiment, the 
+		review will score likewise even though the reviewer expressed a positive opinion about the books. 
+	</p>
+	<p> To see whether there is a relationsship between the sentiment score and the rating of a book the two are plotted
+		against each other. If a linear line trend is seen, it would indicate that a high rating gives a high sentiment
+		score. The plot is seen below.
+	</p>
+	
 	<img src="Code/Plots/Sentiment_vs_rating.png" alt="Sentiment vs. rating" class="smallimage"> 
 
 
