@@ -28,7 +28,7 @@ body {  font-family: Arial;
   padding: 14px 16px;
   transition: 0.3s;
   font-size: 17px;
-	width:20%;
+	width:16.6%;
 }
 
 /* Change background color of buttons on hover */
@@ -66,6 +66,12 @@ body {  font-family: Arial;
 .cont {
 	position:relative;
 	width:80%;
+	margin-left: auto;
+  margin-right: auto
+	}
+.cont2 {
+	position:relative;
+	width:100%;
 	margin-left: auto;
   margin-right: auto
 	}
@@ -184,6 +190,7 @@ div.c {
   <button class="tablinks" onclick="openCity(event, 'About')">About</button>
   <button class="tablinks" onclick="openCity(event, 'Network')">Network</button>
   <button class="tablinks" onclick="openCity(event, 'Sentiment')">Text Analysis</button>
+  <button class="tablinks" onclick="openCity(event, 'Summary')">Summary</button>
   <button class="tablinks" onclick="openCity(event, 'Code')">Code</button>
 </div>
 
@@ -342,9 +349,9 @@ div.c {
 	
 	<h3> Disclaimer </h3>
 	<p> Due to limited time and limited compute power, the analysis that is the basis for the results presented on this website
-	is based on a limited dataset. In the network section 1,978 books are used and only recomendations to other books in this
-	list are considered. In the text-analysis section a subset of 450 books from the books used in the network section as well
-	as 450 low rated books are used. For each book we have only retrieved 15 reviews. This may affect the results, but
+	is based on a limited dataset. In the network section 1,917 books are used and only recomendations to other books in this
+	list are considered. In the text-analysis section a subset of 442 books from the books used in the network section as well
+	as 394 low rated books are used. For each book we have only retrieved 15 reviews. This may affect the results, but
 	we will not comment further on this. </p>
 </div> 	
 	
@@ -354,7 +361,7 @@ div.c {
   <p>We have created a network, where each of the books from the positive list is a node and where two nodes are connected
 	if one books has the other under the section 'Readers also enjoyed'. We have created the network as a directed network.
 	This means that a node is only connected to the nodes it recomends - not the nodes that recomends that node.</p> 
-	<p> We hereby get a network of 1,917 nodes and 10,001 edges. </p>
+	<p> We hereby get a network of 1,917 nodes and 9,898 edges. </p>
 	<p> With the network we investigate the degree distribution, which basically means that we investigate how many times each book 
 		has been recomended. The node with the highest degree (and thereby is the most recomended) is "Harry Potter and the Deathly Hallows" 
 		with degree 535. This means that "Harry Potter and the Deathly Hallows" is recommended for 25.95% of the books 
@@ -395,7 +402,100 @@ div.c {
 	</div>	
 	
 	<p> In the table below we see the 10 nodes with highest degree and the corresponding measures. </p>
-	<h3> insert table </h3>
+	<table border="1" id="table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Degree</th>
+      <th>Eigenvector centrality</th>
+      <th>Betweenness centrality</th>
+      <th>genre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Harry Potter and the Deathly Hallows</td>
+      <td>535</td>
+      <td>0.003696</td>
+      <td>0.129558</td>
+      <td>Fantasy</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Lord of the Flies</td>
+      <td>516</td>
+      <td>0.001204</td>
+      <td>0.170643</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>The Handmaid's Tale</td>
+      <td>369</td>
+      <td>0.001102</td>
+      <td>0.023199</td>
+      <td>Fiction</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>A Wrinkle in Time</td>
+      <td>322</td>
+      <td>0.000863</td>
+      <td>0.002166</td>
+      <td>Fantasy</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Anna Karenina</td>
+      <td>283</td>
+      <td>0.000846</td>
+      <td>0.040024</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Speak</td>
+      <td>187</td>
+      <td>0.000735</td>
+      <td>0.002563</td>
+      <td>Young Adult</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Watership Down</td>
+      <td>169</td>
+      <td>0.000873</td>
+      <td>0.000861</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>White Oleander</td>
+      <td>147</td>
+      <td>0.000962</td>
+      <td>0.005379</td>
+      <td>Fiction</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>The Elephant Tree</td>
+      <td>110</td>
+      <td>0.030922</td>
+      <td>0.008324</td>
+      <td>Miscellaneous</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>The Zombie Room</td>
+      <td>96</td>
+      <td>0.013046</td>
+      <td>0.000897</td>
+      <td>Miscellaneous</td>
+    </tr>
+  </tbody>
+</table>
 	<p> A few interesting remarks can be made from the table above. Looking at entry 8 we see that even though it has a 
 		smaller degree than entry 6 the betweenness centrality measure is almost 10 times bigger. 
 		 <br />This indicates that "The Elephant Tree" tends to be recommended through fewer iterations than 
@@ -414,22 +514,24 @@ div.c {
 	<p> With the updated genrelist, we have investigated how well our hyphothesis holds using a modularity score. This is a score 
 		ranging from -1 to 1 indicating how well the hypothesized communities, actually are small communities in the network. 
 	 	The closer to 1 the better the partition is. </p>
-	<p> Partitioning on genre the modularity score for the network is <u> XXX </u>.  </p>
+	<p> Partitioning on genre the modularity score for the network is <u> 0.38 </u>.  </p>
 	<p> This is considered a high score, but to actually tell something about how good partitioning on genre is, you must investigate 
 		how well it is possible to partition your network. There are several algorithms that does this. One of them is the louvrain algorithm, 
 		which based on the network identifies the best fitting communities. </p>
 	<p> From the confusion matrix we see that the algorithm does output communities that are consistent with the genres 
 		and thus genre seems like a good representative of communities, considering the network. We do, however, see that the 
-		modularity score is increased a lot (froom XXX to XXX) when using the Louvrain algorithm, which suggest that some 
+		modularity score is increased a lot (froom 0.38 to 0.51) when using the Louvrain algorithm, which suggest that some 
 		influencial nodes don't represent their genre in the optimal communities.. </p>
 	
-	<img src="Code/Plots/Confusion_full.png" alt="Confusion matrix (image)" class="smallimage" > 
+	<div class="cont2"
+		<img src="Code/Plots/Confusion_full.png" alt="Confusion matrix (image)" class="smallimage" > 
+	</div>
 	
 	<p> We remind our self that the network consists nodes with very high degree, which may influence the results heavily, 
 		as these most likely are recommended by books from all genres. We investigate if this is the case by considering a subgraph, 
 		where the nodes in the top 1 percentile degree are removed. </p>
 		
-	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/G_degree_new.html" height="700" width=90%></iframe> 
+	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/G_degree_new.html" height="700" width=100%></iframe> 
 	
 	<p> On this network it is very clear to se that there are communities based on genre, which is supported by an 
 		increased modularity. To say that books generally recommends books within the same genre and therefore to 
@@ -437,14 +539,44 @@ div.c {
 
 </div>	
 	
-<div id="Between" class="tabcontent">
-  <h3>Network</h3>
-  <p>Text.</p> 	
+<div id="Betweenness" class="tabcontent">
+  <h2>Network</h2>
+  <p>We have created a network, where each of the books from the positive list is a node and where two nodes are connected
+	if one books has the other under the section 'Readers also enjoyed'. We have created the network as a directed network.
+	This means that a node is only connected to the nodes it recomends - not the nodes that recomends that node.</p> 
+	<p> We hereby get a network of 1,917 nodes and 9,898 edges. </p>
+	<p> With the network we investigate the degree distribution, which basically means that we investigate how many times each book 
+		has been recomended. The node with the highest degree (and thereby is the most recomended) is "Harry Potter and the Deathly Hallows" 
+		with degree 535. This means that "Harry Potter and the Deathly Hallows" is recommended for 25.95% of the books 
+		on the list. The average degree is 10.43, and thus it is 10 times more likely that Harry Potter is recommended than
+		an average book. </p>
+	<p> The figure underneath illustrates the degree distribution for all the books in the positive list. 
+		It illustrates that few books have a very large degree while the majority of the books have a degree under 50. 
+		This indicates that there are a few select books that gets recommended for almost every other book on the list. </p>
+	
+	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/Degree_dist.html" height="700" width=100%></iframe> 
+	
+	<p> Other than degree, we also have other ways to quantify how influential a node is to the network. We have investigated
+		the network with regards to betweenness centrality and eigenvector centrality. Betweenness centrality is a meassure 
+		of how many shortest paths passses through a given node. For our network a high betweenness centrality would indicate 
+		a gateway book, meaning if you read book A you may not be recommended book B, but you get recommended book C. 
+		Book C will then recommend you book B, and the only reason you read book B is therefore because you also read book C. 
+		This makes book C very influential. Eigenvector centrality is also an indicator for how influential a node is. 
+		A node gets a high score if its neighboring node also have a high score. This would for our network mean that a node
+		with a high eigenvector centrality is being recomended by other books that many other books recomend.
+		A book with high degree but low eigenvector centrality could therefore be a book that is recommended alot, 
+		but the books recommending it are not themselves recommended often. </p>
+
+	<p> Here the network is shown, where the nodesize for each node representing the book is set proportional to the degree, 
+		betweenness centrality and eigenvector centrality respectively. You can choose which one you want to see by selecting
+		each one. If you hover over the illustrations you are able to see what book each node represents - you can also
+		zoom in on the images etc. </p>
+	
 	<div class="cont">
   		<div class="tab">
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Network')"id="defaultOpen">Degree</button>
-				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Between')">Between</button>
-				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigen')">Eigen</button>
+				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Betweenness')">Betweenness</button>
+				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigenvector')">Eigenvector</button>
 			</div>
 		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/G_between.html" height="600" width=100%></iframe> 		<p> 	In this illustration the nodesize is set proportional to each nodes betweenness centrality, which 
 			is a measure of how likely it is that given to random nodes in the network, the shortest path between
@@ -454,18 +586,183 @@ div.c {
 			average.
 		</p>
 	</div>	
-  <h3>Network</h3>
-  <p>Text.</p> 	
+	
+	<p> In the table below we see the 10 nodes with highest degree and the corresponding measures. </p>
+	<table border="1" id="table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Degree</th>
+      <th>Eigenvector centrality</th>
+      <th>Betweenness centrality</th>
+      <th>genre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Harry Potter and the Deathly Hallows</td>
+      <td>535</td>
+      <td>0.003696</td>
+      <td>0.129558</td>
+      <td>Fantasy</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Lord of the Flies</td>
+      <td>516</td>
+      <td>0.001204</td>
+      <td>0.170643</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>The Handmaid's Tale</td>
+      <td>369</td>
+      <td>0.001102</td>
+      <td>0.023199</td>
+      <td>Fiction</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>A Wrinkle in Time</td>
+      <td>322</td>
+      <td>0.000863</td>
+      <td>0.002166</td>
+      <td>Fantasy</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Anna Karenina</td>
+      <td>283</td>
+      <td>0.000846</td>
+      <td>0.040024</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Speak</td>
+      <td>187</td>
+      <td>0.000735</td>
+      <td>0.002563</td>
+      <td>Young Adult</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Watership Down</td>
+      <td>169</td>
+      <td>0.000873</td>
+      <td>0.000861</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>White Oleander</td>
+      <td>147</td>
+      <td>0.000962</td>
+      <td>0.005379</td>
+      <td>Fiction</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>The Elephant Tree</td>
+      <td>110</td>
+      <td>0.030922</td>
+      <td>0.008324</td>
+      <td>Miscellaneous</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>The Zombie Room</td>
+      <td>96</td>
+      <td>0.013046</td>
+      <td>0.000897</td>
+      <td>Miscellaneous</td>
+    </tr>
+  </tbody>
+</table>
+	<p> A few interesting remarks can be made from the table above. Looking at entry 8 we see that even though it has a 
+		smaller degree than entry 6 the betweenness centrality measure is almost 10 times bigger. 
+		 <br />This indicates that "The Elephant Tree" tends to be recommended through fewer iterations than 
+		"Watership Down" do. Further, it is noticed that "The Elephant Tree" at entry 8 has a higher eigenvector-centrality 
+		than all others on the list. This shows that the books that recomends "The Elephant Tree" are them self recomended 
+		a lot. </p>
+	
+	<h3> Communities based on genre </h3>
+	<p> We have now seen that some books does get recomended much more than the average book and therefore could be classified as 
+		highly influential in the literary society. But now lets turn our attention to investigate if the network contains 
+		clear groups - in network theory called communities. Our hypothesis was that a book is more likely to be recomended
+		by another book if they are in the same genre, and thus each genre would be a small community in the network. </p>
+	<p> From the list of books we have 66 different genres. However as mentionedmany of the genres consists of very few books. 
+		We have therefore only considered the 15 largest and collected the books in the others in a new genre called 
+		"Miscellaneous". </p>
+	<p> With the updated genrelist, we have investigated how well our hyphothesis holds using a modularity score. This is a score 
+		ranging from -1 to 1 indicating how well the hypothesized communities, actually are small communities in the network. 
+	 	The closer to 1 the better the partition is. </p>
+	<p> Partitioning on genre the modularity score for the network is <u> 0.38 </u>.  </p>
+	<p> This is considered a high score, but to actually tell something about how good partitioning on genre is, you must investigate 
+		how well it is possible to partition your network. There are several algorithms that does this. One of them is the louvrain algorithm, 
+		which based on the network identifies the best fitting communities. </p>
+	<p> From the confusion matrix we see that the algorithm does output communities that are consistent with the genres 
+		and thus genre seems like a good representative of communities, considering the network. We do, however, see that the 
+		modularity score is increased a lot (froom 0.38 to 0.51) when using the Louvrain algorithm, which suggest that some 
+		influencial nodes don't represent their genre in the optimal communities.. </p>
+	
+	<div class="cont2"
+		<img src="Code/Plots/Confusion_full.png" alt="Confusion matrix (image)" class="smallimage" > 
+	</div>
+	
+	<p> We remind our self that the network consists nodes with very high degree, which may influence the results heavily, 
+		as these most likely are recommended by books from all genres. We investigate if this is the case by considering a subgraph, 
+		where the nodes in the top 1 percentile degree are removed. </p>
+		
+	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/G_degree_new.html" height="700" width=100%></iframe> 
+	
+	<p> On this network it is very clear to se that there are communities based on genre, which is supported by an 
+		increased modularity. To say that books generally recommends books within the same genre and therefore to 
+		some extend limits readers within a sub-category, is not wrong. </p>
+
 </div>	
 
-<div id="Eigen" class="tabcontent">
-  <h3>Network</h3>
-  <p>Text.</p> 	
+<div id="Eigenvector" class="tabcontent">
+  <h2>Network</h2>
+  <p>We have created a network, where each of the books from the positive list is a node and where two nodes are connected
+	if one books has the other under the section 'Readers also enjoyed'. We have created the network as a directed network.
+	This means that a node is only connected to the nodes it recomends - not the nodes that recomends that node.</p> 
+	<p> We hereby get a network of 1,917 nodes and 9,898 edges. </p>
+	<p> With the network we investigate the degree distribution, which basically means that we investigate how many times each book 
+		has been recomended. The node with the highest degree (and thereby is the most recomended) is "Harry Potter and the Deathly Hallows" 
+		with degree 535. This means that "Harry Potter and the Deathly Hallows" is recommended for 25.95% of the books 
+		on the list. The average degree is 10.43, and thus it is 10 times more likely that Harry Potter is recommended than
+		an average book. </p>
+	<p> The figure underneath illustrates the degree distribution for all the books in the positive list. 
+		It illustrates that few books have a very large degree while the majority of the books have a degree under 50. 
+		This indicates that there are a few select books that gets recommended for almost every other book on the list. </p>
+	
+	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/Degree_dist.html" height="700" width=100%></iframe> 
+	
+	<p> Other than degree, we also have other ways to quantify how influential a node is to the network. We have investigated
+		the network with regards to betweenness centrality and eigenvector centrality. Betweenness centrality is a meassure 
+		of how many shortest paths passses through a given node. For our network a high betweenness centrality would indicate 
+		a gateway book, meaning if you read book A you may not be recommended book B, but you get recommended book C. 
+		Book C will then recommend you book B, and the only reason you read book B is therefore because you also read book C. 
+		This makes book C very influential. Eigenvector centrality is also an indicator for how influential a node is. 
+		A node gets a high score if its neighboring node also have a high score. This would for our network mean that a node
+		with a high eigenvector centrality is being recomended by other books that many other books recomend.
+		A book with high degree but low eigenvector centrality could therefore be a book that is recommended alot, 
+		but the books recommending it are not themselves recommended often. </p>
+
+	<p> Here the network is shown, where the nodesize for each node representing the book is set proportional to the degree, 
+		betweenness centrality and eigenvector centrality respectively. You can choose which one you want to see by selecting
+		each one. If you hover over the illustrations you are able to see what book each node represents - you can also
+		zoom in on the images etc. </p>
+	
 	<div class="cont">
   		<div class="tab">
 				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Network')"id="defaultOpen">Degree</button>
-				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Between')">Between</button>
-				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigen')">Eigen</button>
+				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Betweenness')">Betweenness</button>
+				<button class="tablinks" style=width:33.33%; onclick="openCity(event, 'Eigenvector')">Eigenvector</button>
 			</div>
 		<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/G_eigen.html" height="600" width=100%></iframe> 
 		<p> 	In this illustration the nodesize is set proportional to each nodes eigenvector, which
@@ -474,8 +771,144 @@ div.c {
 			have any nodes scoring very high eigenvector centrality. This is because almost all books recomend the same books, and 
 			thus acording to eigenvector centrality all the books have equal influence. </p>
 	</div>	 
-  <h3>Network</h3>
-  <p>Text.</p> 	
+	
+	<p> In the table below we see the 10 nodes with highest degree and the corresponding measures. </p>
+	<table border="1" id="table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Degree</th>
+      <th>Eigenvector centrality</th>
+      <th>Betweenness centrality</th>
+      <th>genre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Harry Potter and the Deathly Hallows</td>
+      <td>535</td>
+      <td>0.003696</td>
+      <td>0.129558</td>
+      <td>Fantasy</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Lord of the Flies</td>
+      <td>516</td>
+      <td>0.001204</td>
+      <td>0.170643</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>The Handmaid's Tale</td>
+      <td>369</td>
+      <td>0.001102</td>
+      <td>0.023199</td>
+      <td>Fiction</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>A Wrinkle in Time</td>
+      <td>322</td>
+      <td>0.000863</td>
+      <td>0.002166</td>
+      <td>Fantasy</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Anna Karenina</td>
+      <td>283</td>
+      <td>0.000846</td>
+      <td>0.040024</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Speak</td>
+      <td>187</td>
+      <td>0.000735</td>
+      <td>0.002563</td>
+      <td>Young Adult</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Watership Down</td>
+      <td>169</td>
+      <td>0.000873</td>
+      <td>0.000861</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>White Oleander</td>
+      <td>147</td>
+      <td>0.000962</td>
+      <td>0.005379</td>
+      <td>Fiction</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>The Elephant Tree</td>
+      <td>110</td>
+      <td>0.030922</td>
+      <td>0.008324</td>
+      <td>Miscellaneous</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>The Zombie Room</td>
+      <td>96</td>
+      <td>0.013046</td>
+      <td>0.000897</td>
+      <td>Miscellaneous</td>
+    </tr>
+  </tbody>
+</table>
+	<p> A few interesting remarks can be made from the table above. Looking at entry 8 we see that even though it has a 
+		smaller degree than entry 6 the betweenness centrality measure is almost 10 times bigger. 
+		 <br />This indicates that "The Elephant Tree" tends to be recommended through fewer iterations than 
+		"Watership Down" do. Further, it is noticed that "The Elephant Tree" at entry 8 has a higher eigenvector-centrality 
+		than all others on the list. This shows that the books that recomends "The Elephant Tree" are them self recomended 
+		a lot. </p>
+	
+	<h3> Communities based on genre </h3>
+	<p> We have now seen that some books does get recomended much more than the average book and therefore could be classified as 
+		highly influential in the literary society. But now lets turn our attention to investigate if the network contains 
+		clear groups - in network theory called communities. Our hypothesis was that a book is more likely to be recomended
+		by another book if they are in the same genre, and thus each genre would be a small community in the network. </p>
+	<p> From the list of books we have 66 different genres. However as mentionedmany of the genres consists of very few books. 
+		We have therefore only considered the 15 largest and collected the books in the others in a new genre called 
+		"Miscellaneous". </p>
+	<p> With the updated genrelist, we have investigated how well our hyphothesis holds using a modularity score. This is a score 
+		ranging from -1 to 1 indicating how well the hypothesized communities, actually are small communities in the network. 
+	 	The closer to 1 the better the partition is. </p>
+	<p> Partitioning on genre the modularity score for the network is <u> 0.38 </u>.  </p>
+	<p> This is considered a high score, but to actually tell something about how good partitioning on genre is, you must investigate 
+		how well it is possible to partition your network. There are several algorithms that does this. One of them is the louvrain algorithm, 
+		which based on the network identifies the best fitting communities. </p>
+	<p> From the confusion matrix we see that the algorithm does output communities that are consistent with the genres 
+		and thus genre seems like a good representative of communities, considering the network. We do, however, see that the 
+		modularity score is increased a lot (froom 0.38 to 0.51) when using the Louvrain algorithm, which suggest that some 
+		influencial nodes don't represent their genre in the optimal communities.. </p>
+	
+	<div class="cont2"
+		<img src="Code/Plots/Confusion_full.png" alt="Confusion matrix (image)" class="smallimage" > 
+	</div>
+	
+	<p> We remind our self that the network consists nodes with very high degree, which may influence the results heavily, 
+		as these most likely are recommended by books from all genres. We investigate if this is the case by considering a subgraph, 
+		where the nodes in the top 1 percentile degree are removed. </p>
+		
+	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/G_degree_new.html" height="700" width=100%></iframe> 
+	
+	<p> On this network it is very clear to se that there are communities based on genre, which is supported by an 
+		increased modularity. To say that books generally recommends books within the same genre and therefore to 
+		some extend limits readers within a sub-category, is not wrong. </p>
+
+	
 </div>	
 																																																							
 
@@ -484,56 +917,194 @@ div.c {
 <div id="Sentiment" class="tabcontent">
   <h2>Text Analysis</h2>
   <p>On Goodreads users are able to write reviews on the books and many do. We have investigated these rewievs using sentiment
-	  analysis and further investigated the word precalence of those classified as very positive and very negative 
-	  respectively. Comparing each books sentiment score with the ratings we have investigated if how well these match. </p>
+	  analysis and further investigated the word prevalence of those classified as very positive and very negative 
+	  respectively. Comparing each books sentiment score with the ratings we have investigated how well these match. </p>
 	<p> In the text analysis, we have included the books from the negative book list. The analysis therefore consists of books
 		both with very high average rating and very low average rating. <p>
 	<h4> Sentiment </h4>
-	We have first investigated the reviews with sentiment analysis, which is a method of quantifying how positive a text is. 
-	We have used the VADER (Valence Aware Dictionary and sEntiment Reasoner) sentiment, which is a lexicon and rule-based 
-	sentiment analysis tool that is specifically attuned to sentiments expressed in social media. Though the reviews are different
-	than text from social media, many of the main features are the same and we have therefore identified this method to be the 
-	most appropriate.</p>
-	<p> Here you see the distribution of sentiment score. We have grouped the books the the positive list and the books from the
-		negative list to provide an initial expression of wheter ratings and sentiment match. </p>
+	Sentiment in text is the amount of emotion portrayed. Two methods can be used to calculate the sentiment of a text: 
+		a model can be trained on positive and negative data to learn nuances differentiating the two, or a rule-based approach
+		can be used, where sentiment of a text is the result of a set of manually set rules. 
+		Often it is the rule-based approach that is used, as building a model to score automatically is both 
+		time-consuming and requires excessive amounts of data. 
+		The rule-based approach utilizes many Natural Language Processing methods such as tokenizing, stemming and 
+		part-of-speech (POS) tagging. The polarization of words is often the result of a look-up in a predefined 
+		lexical with polarity scores for certain words.
+		For this project we have used VADER (Valence Aware Dictionary and sentiment Reasoner) sentiment package 
+		in Python. The VADER library is a rule-based approach especially appropriate for text from social media. 
+		It is a highly sophisticated package which takes the syntax of the sentence into account when scoring and 
+		thereby avoiding a common fall-back of the classical lexical approach, such as the incorporations of negations.
+		Further, VADER has a sense of capitalization making words such as "GREAT" score higher than "great" as well as
+		a sense of punctuation, letting multiple exclamation marks give a higher polarity score. 
+		The package is tuned for sentence-based sentiment but will for this purpose be used on full reviews 
+		for a single book some spanning several paragraphs. The final sentiment for the book is then the mean of the
+		sentiment of the reviews for the book. 
+
+		The output from the VADER analysis is a negative, neutral, positive and compound score, where the compound 
+		score is the overall sentiment of the sentence and what is used in this analysis. The scores can range 
+		between -1 to 1 with 1 being the most positive and -1 the most negative. 
+	
+	<p> Below you see the distribution of the sentiment score for the books from the postive and negative list respectively.
+	</p>
 	
 	<img src="Code/Plots/Sentimentscores.png" alt="Sentiment distributions" class="smallimage"> 
 	
 	<p> As expected we see that the books from the negative list generally scores lower than the books from the positive 
-		list. However, from the illustration we also see that some books from the negative list scores wrose than the 
+		list. However, from the illustration we also see that some books from the negative list scores worse than the 
 		average 'bad' book, and some of the books from the positive list scores higher than the average 'good' book. </p>
-	<p> The books are classified as very negative and very positive as the books that scored below the 5<sub>th</sub> 
-		percentile and above the 95<sub>th</sub> percentile respectively.</p>
+	<p> We therefore introduce two new groupd, where books are classified as very negative and very positive as
+		the books that scored below the 5<sub>th</sub> 
+		percentile and above the 95<sub>th</sub> percentile respectively of the combined sentiment scores for all books.</p>
 	<p> With the information retrieval method, TD-IDF (term frequency–inverse document frequency) we have investigated the 
-		word precalence for the very negative and very positive books. The TD-IDF score is calculated as the frekvency
+		word prevalence for the very negative and very positive books. The TD-IDF score is calculated as the frequency
 		a word is present in a document (here all the reviews in one group) adjusted with how used the word is across all
-		groups. The results are respresented in these wordclouds </p>
-	<div class="row">
-  		<div class="column" id="img1">
-        			<img src="Code/Plots/Wordcloud_pospos.png" alt="Wordcloud for very positive books" class="image"> 
-        			<div class="overlay">Very positive books</div>
-  		</div>
-  		<div class="column" id="img2">
-        			<img src="Code/Plots/Wordcloud_negneg.png" alt="Wordcloud for very negative books" class="image"> 
-        			<div class="overlay">Very negative books</div>
-  		</div>
-	</div>	
+		documents in corpus. The results are respresented in the wordclouds below. </p>
 
+	<div class="row">
+			<div class="column" id="img1">
+					<img src="Code/Plots/Wordcloud_pospos.png" alt="Wordcloud for very positive books" class="image"> 
+					<div class="overlay">Very positive books</div>
+			</div>
+			<div class="column" id="img2">
+					<img src="Code/Plots/Wordcloud_negneg.png" alt="Wordcloud for very negative books" class="image"> 
+					<div class="overlay">Very negative books</div>
+			</div>
+		</div>	
+	
+	<p> These wordclouds does not display the 
+		clear sentiment that was hypothesized. They become rather book specific with "Abbey" prominent for the 
+		positive books most likely referring to a character or author, and "Miller" in the negative books also 
+		probably a character or author. 
+		Further, one of the main words in the wordcloud of good books is "lonesome". Investigating the reviews where 
+		this is present a bit further shows, that it is used when describing a scene or character in one of the books. 
+		The wordcloud for the negative books does catch some general trends especially in the books from the negative 
+		list. 
+		Here words such as "trans", "raped", "killer", "racial" and "blacks" appear. A quick glance at the title of 
+		the books on the negative list largely contributing to the final negative list, reveals quite unique takes 
+		on some of these topics. 
+	</p>
+	
+	<p> Having scored all the books it is then also possible to find the book with the highest sentiment score. This turns
+		out to be "Goodnight Moon" by Margaret Wise Brown where all the 15 reviews gathered for this book is higher 
+		than 0.9. An example of one of the reviews for "Goodnight Moon" is seen below. 
+	</p>
+	<div class="a">
+		<p><em>'Loved it from page 1. Slow paced and really descriptive but I loved it. 
+			I really enjoyed learning about life back then for the Nolans. Highs and lows of life
+			and daily experience I was so emotionally attached to Francie. 
+			She was a brillant character and I loved her to pieces' </em></p>
+	</div>
+	
+	<p> Similarly the book with the lowest sentiment score was found. This was "Revealing Eden" by Victoria Foyt and
+		one of the reviews gotten for that book is seen below. 
+	</p>
+	
+	<div class="a">
+		<p><em>"This is a terrible idea for a book. As a woman of color, I find it extremely offensive
+			to see a woman in blackface on the promotion, a comparison to Beauty and the Beast, where
+			a black man is considered 'beastly', and the names of the two races themselves - 'pearl' 
+			for white and 'coal' for black - what is this author trying to convey here? I'm sure anyone 
+			with a brain can guess. As a young adult, my intelligence is insulted - how could this be 
+			considered good literature when it blatantly trivializes the trials and tribulations 
+			of actual slavery? It can't - this book is absolute trash. " </em></p>
+	</div>
+	
+	<p> This concludes the major investigations of sentiment in the reviews. The extreme cases of sentiment catch
+		reviews that are highly polar but creating TFIDF conditioned on overall sentiment did not appear to give 
+		useful divisions of the two groups. 
+		The hypothesis was that calculating the TFIDF of the positively scored books would highlight 
+		very positive words, as these are more likely in that group. The conclusion is though, that the words 
+		caught by the TFIDF seem to be more differentiated than that. 
+	</p>
+	<p> The general idea was that using sentiment analysis the rating of a books could be somewhat predicted, as 
+		sentiment analysis on other kind of reviews have proven very effective. Our results could indicate that 
+		this approach is made difficult when the object of the review is text as well. In this case the reviews 
+		often contain quotes are descriptions of the books, and if the book itself carry a low sentiment, the 
+		review will score likewise even though the reviewer expressed a positive opinion about the books. 
+	</p>
+	<p> To see whether there is a relationsship between the sentiment score and the rating of a book the two are plotted
+		against each other. If a linear line trend is seen, it would indicate that a high rating gives a high sentiment
+		score. The plot is seen below.
+	</p>
+	
+	<img src="Code/Plots/Sentiment_vs_rating.png" alt="Sentiment vs. rating" class="smallimage"> 
+	<p> Here a small positive correlation is seen but a clear relationsship between sentiment and rating does not seem
+		to be present.
+	</p>
 
 </div>
 
+<!-- ************* Info on Summary page ************* -->
+<div id="Summary" class="tabcontent">
+	<h1> Summary </h1>
+	<p> Throughout this project a network of books has been explored. Looking at books from a list of very popular books 
+		a network was created as a link between two books if one book was recommended on the other books Goodreads page.
+	<br/> The resulting network showed that few books have very large degree and are therefore recommended often by others. 
+		Investigating the network with betweenness-centrality equally showed that some books seem very influential. 
+		 No books seemed to score highly on the eigenvector centrality, meaning, the books recommended 
+		 a lot is not in turn recommended by highly recommended books. However, it still seems clear that some books in 
+		the network are very influential. 
+	<br/>The next approach to investigating the network we used was community detection. One hypothesis was that books 
+		recommend books within the same genre. Here it was seen that when communities were partitioned on genre in the 
+		full graph did indicate our hypothesis was true, but it also indicated that some very influential nodes don't 
+		represent their genre in the optimal communities. We therefore created a sub-graph, where the nodes in the top 
+		1 percentile degree was removed. This even further indicated that books do tend to recommend books within the 
+		same genre more than books of different genres. </p>
+
+	<p> Next, the reviews of each book were taken into account. To get two groups to compare, books from a very poorly 
+		rated list of books was also scraped. First, a TFIDF analysis was performed between two documents; one with 
+		all the tokens from the reviews on the positive list, and one with the tokens from the reviews on the negative 
+		list. 
+	<br/> The result was illustrated using word clouds. The intuition was, that were more prominent in the positive list 
+		than the negative list would be very positive words and opposite for words originating from the negative list. 
+		This was not the case. Instead, the analysis seemed to pick up on highly book specific words indicating that 
+		descriptive polar words where present in both documents. 
+	<br/> Since the two groups differed as being highly rated versus low rated books, a clear distinction on sentiment in 
+		the reviews was also expected. Finding the sentiment of each reviews and meaning over the 15 reviews acquired 
+		for each book did show a separation of distribution of sentiment for the two groups. 
+	<br/> It did also indicate overlapping sentiment, meaning that some books from the positive list scored a rather 
+		negative sentiment and some books from the negative list scored positively. 
+	<br/> This led to the creation of two new groups, where a threshold for high and low sentiment respectively was set, 
+		and all books regardless of origin scoring above or below these thresholds were classified as either positive 
+		book or negative book. 
+	<br/>Diving into the most positive and negative rated books and investigating their sentiment in reviews showed that the 
+		sentiment analysis had in fact managed to pick up the general sentiment of a review. A TFIDF analysis was once 
+		more performed on this division of books, and a better intuitive wordclouds appeared. They were though still very 
+		book specific and some of the highest scoring words referred to specific authors or characters. </p>
+
+	<p> Lastly, an investigation of correlations between some of the parameters was performed. This indicated a slight 
+		positive correlation between the rating of a book and the sentiment score of their reviews. It was though not 
+		as prevalent as first hypothesized. 
+	<br/> No correlation was found between the degree and the sentiment of the reviews for a book, dismissing the idea that 
+		if a book is recommended often, then the sentiment in the reviews is also high. 
+	<br/>Last correlation investigated was a correlation between rating and the logarithm of the rating count. Here a 
+		clear positive correlation was seen indicating a high rating count gives a high rating. The data is though 
+		biased since the books chosen are very popular books conditioning them to have both a higher rating and a higher 
+		rating count. </p>
+
+	<p> Overall, the analysis performed in this project showed, that few books are recommended often, making them very 
+		influential in the literary society. Books recommended by these books therefore hold a higher influence themselves.
+		Further, it was showed that TFIDF and sentiment analysis on reviews of books, was skewed by the fact that the 
+		reviews themselves often contain quotes or descriptions of the book reviewed. </p>
+
+</div>  
 <!-- ************* Info on code page ************* -->
 <div id="Code" class="tabcontent">
 	<div class="row">
   		<div class="column" id="img1">
-    				<a href="https://github.com/benj1003/Goodreads_network/blob/master/Code/Final%20project.ipynb">	
-        			<img src="Images/Explainer_notebook.PNG" alt="Link to explainer notebook" class="image"> 
+    				<a href="https://github.com/benj1003/Goodreads_network/blob/master/Code/Explainer%20Notebook.ipynb">	
+        			<img src="Images/Explainer_notebook.png" alt="Link to explainer notebook" class="image"> 
         			<div class="overlay">Click to open the Explainer notebook</div>
   		</div>
   		<div class="column" id="img2">
+    				<a href="https://github.com/benj1003/Goodreads_network/blob/master/Code/Scraping.ipynb">	
+        			<img src="Images/Scraping.png" alt="Link to scraping notebook" class="image"> 
+        			<div class="overlay">Click to open scraping notebook</div>
+  		</div>
+		<div class="column" id="img3">
     				<a href="https://github.com/benj1003/Goodreads_network/tree/master/Code">	
         			<img src="Images/Github folder.png" alt="Link to code folder" class="image"> 
-        			<div class="overlay">Click to go to code folder</div>
+        			<div class="overlay">Click to go to Github repository</div>
   		</div>
 	</div>	
 </div>  
