@@ -349,9 +349,9 @@ div.c {
 	
 	<h3> Disclaimer </h3>
 	<p> Due to limited time and limited compute power, the analysis that is the basis for the results presented on this website
-	is based on a limited dataset. In the network section 1,978 books are used and only recomendations to other books in this
-	list are considered. In the text-analysis section a subset of 450 books from the books used in the network section as well
-	as 450 low rated books are used. For each book we have only retrieved 15 reviews. This may affect the results, but
+	is based on a limited dataset. In the network section 1,917 books are used and only recomendations to other books in this
+	list are considered. In the text-analysis section a subset of 442 books from the books used in the network section as well
+	as 394 low rated books are used. For each book we have only retrieved 15 reviews. This may affect the results, but
 	we will not comment further on this. </p>
 </div> 	
 	
@@ -361,7 +361,7 @@ div.c {
   <p>We have created a network, where each of the books from the positive list is a node and where two nodes are connected
 	if one books has the other under the section 'Readers also enjoyed'. We have created the network as a directed network.
 	This means that a node is only connected to the nodes it recomends - not the nodes that recomends that node.</p> 
-	<p> We hereby get a network of 1,917 nodes and 10,001 edges. </p>
+	<p> We hereby get a network of 1,917 nodes and 9,898 edges. </p>
 	<p> With the network we investigate the degree distribution, which basically means that we investigate how many times each book 
 		has been recomended. The node with the highest degree (and thereby is the most recomended) is "Harry Potter and the Deathly Hallows" 
 		with degree 535. This means that "Harry Potter and the Deathly Hallows" is recommended for 25.95% of the books 
@@ -421,13 +421,13 @@ div.c {
 	<p> With the updated genrelist, we have investigated how well our hyphothesis holds using a modularity score. This is a score 
 		ranging from -1 to 1 indicating how well the hypothesized communities, actually are small communities in the network. 
 	 	The closer to 1 the better the partition is. </p>
-	<p> Partitioning on genre the modularity score for the network is <u> XXX </u>.  </p>
+	<p> Partitioning on genre the modularity score for the network is <u> 0.38 </u>.  </p>
 	<p> This is considered a high score, but to actually tell something about how good partitioning on genre is, you must investigate 
 		how well it is possible to partition your network. There are several algorithms that does this. One of them is the louvrain algorithm, 
 		which based on the network identifies the best fitting communities. </p>
 	<p> From the confusion matrix we see that the algorithm does output communities that are consistent with the genres 
 		and thus genre seems like a good representative of communities, considering the network. We do, however, see that the 
-		modularity score is increased a lot (froom XXX to XXX) when using the Louvrain algorithm, which suggest that some 
+		modularity score is increased a lot (froom 0.38 to 0.51) when using the Louvrain algorithm, which suggest that some 
 		influencial nodes don't represent their genre in the optimal communities.. </p>
 	
 	<div class="cont2"
