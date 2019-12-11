@@ -402,7 +402,100 @@ div.c {
 	</div>	
 	
 	<p> In the table below we see the 10 nodes with highest degree and the corresponding measures. </p>
-	<h3> insert table </h3>
+	<table border="1" id="table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Degree</th>
+      <th>Eigenvector centrality</th>
+      <th>Betweenness centrality</th>
+      <th>genre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Harry Potter and the Deathly Hallows</td>
+      <td>535</td>
+      <td>0.003696</td>
+      <td>0.129558</td>
+      <td>Fantasy</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Lord of the Flies</td>
+      <td>516</td>
+      <td>0.001204</td>
+      <td>0.170643</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>The Handmaid's Tale</td>
+      <td>369</td>
+      <td>0.001102</td>
+      <td>0.023199</td>
+      <td>Fiction</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>A Wrinkle in Time</td>
+      <td>322</td>
+      <td>0.000863</td>
+      <td>0.002166</td>
+      <td>Fantasy</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Anna Karenina</td>
+      <td>283</td>
+      <td>0.000846</td>
+      <td>0.040024</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Speak</td>
+      <td>187</td>
+      <td>0.000735</td>
+      <td>0.002563</td>
+      <td>Young Adult</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Watership Down</td>
+      <td>169</td>
+      <td>0.000873</td>
+      <td>0.000861</td>
+      <td>Classics</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>White Oleander</td>
+      <td>147</td>
+      <td>0.000962</td>
+      <td>0.005379</td>
+      <td>Fiction</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>The Elephant Tree</td>
+      <td>110</td>
+      <td>0.030922</td>
+      <td>0.008324</td>
+      <td>Miscellaneous</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>The Zombie Room</td>
+      <td>96</td>
+      <td>0.013046</td>
+      <td>0.000897</td>
+      <td>Miscellaneous</td>
+    </tr>
+  </tbody>
+</table>
 	<p> A few interesting remarks can be made from the table above. Looking at entry 8 we see that even though it has a 
 		smaller degree than entry 6 the betweenness centrality measure is almost 10 times bigger. 
 		 <br />This indicates that "The Elephant Tree" tends to be recommended through fewer iterations than 
