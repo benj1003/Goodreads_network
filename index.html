@@ -69,6 +69,12 @@ body {  font-family: Arial;
 	margin-left: auto;
   margin-right: auto
 	}
+.cont2 {
+	position:relative;
+	width:100%;
+	margin-left: auto;
+  margin-right: auto
+	}
 	
 .container {
   position: relative;
@@ -527,16 +533,18 @@ div.c {
 		word prevalence for the very negative and very positive books. The TD-IDF score is calculated as the frequency
 		a word is present in a document (here all the reviews in one group) adjusted with how used the word is across all
 		documents in corpus. The results are respresented in the wordclouds below. </p>
-	<div class="row">
-  		<div class="column" id="img1">
-        			<img src="Code/Plots/Wordcloud_pospos.png" alt="Wordcloud for very positive books" class="image"> 
-        			<div class="overlay">Very positive books</div>
-  		</div>
-  		<div class="column" id="img2">
-        			<img src="Code/Plots/Wordcloud_negneg.png" alt="Wordcloud for very negative books" class="image"> 
-        			<div class="overlay">Very negative books</div>
-  		</div>
-	</div>	
+	<div class="cont2"
+		<div class="row">
+			<div class="column" id="img1">
+					<img src="Code/Plots/Wordcloud_pospos.png" alt="Wordcloud for very positive books" class="image"> 
+					<div class="overlay">Very positive books</div>
+			</div>
+			<div class="column" id="img2">
+					<img src="Code/Plots/Wordcloud_negneg.png" alt="Wordcloud for very negative books" class="image"> 
+					<div class="overlay">Very negative books</div>
+			</div>
+		</div>	
+	</div>
 	
 	<p> These wordclouds does not display the 
 		clear sentiment that was hypothesized. They become rather book specific with "Abbey" prominent for the 
