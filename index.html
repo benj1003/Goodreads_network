@@ -484,30 +484,48 @@ div.c {
 <div id="Sentiment" class="tabcontent">
   <h2>Text Analysis</h2>
   <p>On Goodreads users are able to write reviews on the books and many do. We have investigated these rewievs using sentiment
-	  analysis and further investigated the word precalence of those classified as very positive and very negative 
-	  respectively. Comparing each books sentiment score with the ratings we have investigated if how well these match. </p>
+	  analysis and further investigated the word prevalence of those classified as very positive and very negative 
+	  respectively. Comparing each books sentiment score with the ratings we have investigated how well these match. </p>
 	<p> In the text analysis, we have included the books from the negative book list. The analysis therefore consists of books
 		both with very high average rating and very low average rating. <p>
 	<h4> Sentiment </h4>
-	We have first investigated the reviews with sentiment analysis, which is a method of quantifying how positive a text is. 
-	We have used the VADER (Valence Aware Dictionary and sEntiment Reasoner) sentiment, which is a lexicon and rule-based 
-	sentiment analysis tool that is specifically attuned to sentiments expressed in social media. Though the reviews are different
-	than text from social media, many of the main features are the same and we have therefore identified this method to be the 
-	most appropriate.</p>
-	<p> Here you see the distribution of sentiment score. We have grouped the books the the positive list and the books from the
-		negative list to provide an initial expression of wheter ratings and sentiment match. </p>
+	Sentiment in text is the amount of emotion portrayed. Two methods can be used to calculate the sentiment of a text: 
+		a model can be trained on positive and negative data to learn nuances differentiating the two, or a rule-based approach
+		can be used, where sentiment of a text is the result of a set of manually set rules. 
+		Often it is the rule-based approach that is used, as building a model to score automatically is both 
+		time-consuming and requires excessive amounts of data. 
+		The rule-based approach utilizes many Natural Language Processing methods such as tokenizing, stemming and 
+		part-of-speech (POS) tagging. The polarization of words is often the result of a look-up in a predefined 
+		lexical with polarity scores for certain words.
+		For this project we have used VADER (Valence Aware Dictionary and sentiment Reasoner) sentiment package 
+		in Python. The VADER library is a rule-based approach especially appropriate for text from social media. 
+		It is a highly sophisticated package which takes the syntax of the sentence into account when scoring and 
+		thereby avoiding a common fall-back of the classical lexical approach, such as the incorporations of negations.
+		Further, VADER has a sense of capitalization making words such as "GREAT" score higher than "great" as well as
+		a sense of punctuation, letting multiple exclamation marks give a higher polarity score. 
+		The package is tuned for sentence-based sentiment but will for this purpose be used on full reviews 
+		for a single book some spanning several paragraphs. The final sentiment for the book is then the mean of the
+		sentiment of the reviews for the book. 
+
+		The output from the VADER analysis is a negative, neutral, positive and compound score, where the compound 
+		score is the overall sentiment of the sentence and what is used in this analysis. The scores can range 
+		between -1 to 1 with 1 being the most positive and -1 the most negative. 
+	
+	<p> Below you see the distribution of the sentiment score for the books from the postive and negative list respectively.
+	</p>
 	
 	<img src="Code/Plots/Sentimentscores.png" alt="Sentiment distributions" class="smallimage"> 
 	
 	<p> As expected we see that the books from the negative list generally scores lower than the books from the positive 
-		list. However, from the illustration we also see that some books from the negative list scores wrose than the 
+		list. However, from the illustration we also see that some books from the negative list scores worse than the 
 		average 'bad' book, and some of the books from the positive list scores higher than the average 'good' book. </p>
-	<p> The books are classified as very negative and very positive as the books that scored below the 5<sub>th</sub> 
-		percentile and above the 95<sub>th</sub> percentile respectively.</p>
+	<p> We therefore introduce two new groupd, where books are classified as very negative and very positive as
+		the books that scored below the 5<sub>th</sub> 
+		percentile and above the 95<sub>th</sub> percentile respectively of the combined sentiment scores for all books.</p>
 	<p> With the information retrieval method, TD-IDF (term frequency–inverse document frequency) we have investigated the 
-		word precalence for the very negative and very positive books. The TD-IDF score is calculated as the frekvency
+		word prevalence for the very negative and very positive books. The TD-IDF score is calculated as the frequency
 		a word is present in a document (here all the reviews in one group) adjusted with how used the word is across all
-		groups. The results are respresented in these wordclouds </p>
+		documents in corpus. The results are respresented in the wordclouds below. </p>
 	<div class="row">
   		<div class="column" id="img1">
         			<img src="Code/Plots/Wordcloud_pospos.png" alt="Wordcloud for very positive books" class="image"> 
@@ -518,6 +536,44 @@ div.c {
         			<div class="overlay">Very negative books</div>
   		</div>
 	</div>	
+	
+	<p> These wordclouds does not display the 
+		clear sentiment that was hypothesized. They become rather book specific with "Abbey" prominent for the 
+		positive books most likely referring to a character or author, and "Miller" in the negative books also 
+		probably a character or author. 
+		Further, one of the main words in the wordcloud of good books is "lonesome". Investigating the reviews where 
+		this is present a bit further shows, that it is used when describing a scene or character in one of the books. 
+		The wordcloud for the negative books does catch some general trends especially in the books from the negative 
+		list. 
+		Here words such as "trans", "raped", "killer", "racial" and "blacks" appear. A quick glance at the title of 
+		the books on the negative list largely contributing to the final negative list, reveals quite unique takes 
+		on some of these topics. 
+	</p>
+	
+	<p> Having scored all the books it is then also possible to find the book with the highest sentiment score. This turns
+		out to be "Goodnight Moon" by Margaret Wise Brown where all the 15 reviews gathered for this book is higher 
+		than 0.9. An example of one of the reviews for "Goodnight Moon" is seen below. 
+	</p>
+	<div class="a">
+		<p><em>'Loved it from page 1. Slow paced and really descriptive but I loved it. 
+			I really enjoyed learning about life back then for the Nolans. Highs and lows of life
+			and daily experience I was so emotionally attached to Francie. 
+			She was a brillant character and I loved her to pieces' </em></p>
+	</div>
+	
+	<p> Similarly the book with the lowest sentiment score was found. This was "Revealing Eden" by Victoria Foyt and
+		one of the reviews gotten for that book is seen below. 
+	</p>
+	
+	<div class="a">
+		<p><em>"This is a terrible idea for a book. As a woman of color, I find it extremely offensive
+			to see a woman in blackface on the promotion, a comparison to Beauty and the Beast, where
+			a black man is considered 'beastly', and the names of the two races themselves - 'pearl' 
+			for white and 'coal' for black - what is this author trying to convey here? I'm sure anyone 
+			with a brain can guess. As a young adult, my intelligence is insulted - how could this be 
+			considered good literature when it blatantly trivializes the trials and tribulations 
+			of actual slavery? It can't - this book is absolute trash. " </em></p>
+	</div>
 	
 	<img src="Code/Plots/Sentiment_vs_rating.png" alt="Sentiment vs. rating" class="smallimage"> 
 
