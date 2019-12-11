@@ -85,6 +85,8 @@ body {  font-family: Arial;
   float: left;
   width:45%;
   padding: 5px;
+	margin-left: auto;
+  margin-right: auto
 }
 
 /* Clearfix (clear floats) */
@@ -438,7 +440,7 @@ div.c {
 		as these most likely are recommended by books from all genres. We investigate if this is the case by considering a subgraph, 
 		where the nodes in the top 1 percentile degree are removed. </p>
 		
-	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/G_degree_new.html" height="700" width=90%></iframe> 
+	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/G_degree_new.html" height="700" width=100%></iframe> 
 	
 	<p> On this network it is very clear to se that there are communities based on genre, which is supported by an 
 		increased modularity. To say that books generally recommends books within the same genre and therefore to 
@@ -535,8 +537,8 @@ div.c {
 		word prevalence for the very negative and very positive books. The TD-IDF score is calculated as the frequency
 		a word is present in a document (here all the reviews in one group) adjusted with how used the word is across all
 		documents in corpus. The results are respresented in the wordclouds below. </p>
-	<div class="cont2"
-		<div class="row">
+
+	<div class="row">
 			<div class="column" id="img1">
 					<img src="Code/Plots/Wordcloud_pospos.png" alt="Wordcloud for very positive books" class="image"> 
 					<div class="overlay">Very positive books</div>
@@ -546,7 +548,6 @@ div.c {
 					<div class="overlay">Very negative books</div>
 			</div>
 		</div>	
-	</div>
 	
 	<p> These wordclouds does not display the 
 		clear sentiment that was hypothesized. They become rather book specific with "Abbey" prominent for the 
