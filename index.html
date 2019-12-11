@@ -184,6 +184,7 @@ div.c {
   <button class="tablinks" onclick="openCity(event, 'About')">About</button>
   <button class="tablinks" onclick="openCity(event, 'Network')">Network</button>
   <button class="tablinks" onclick="openCity(event, 'Sentiment')">Text Analysis</button>
+  <button class="tablinks" onclick="openCity(event, 'Summary')">Summary</button>
   <button class="tablinks" onclick="openCity(event, 'Code')">Code</button>
 </div>
 
@@ -600,6 +601,59 @@ div.c {
 
 </div>
 
+<!-- ************* Info on Summary page ************* -->
+<div id="Summary" class="tabcontent">
+	<h1> Summary </h1>
+	<p> Throughout this project a network of books has been explored. Looking at books from a list of very popular books 
+		a network was created as a link between two books if one book was recommended on the other books Goodreads page.
+	<br/> The resulting network showed that few books have very large degree and are therefore recommended often by others. 
+		Investigating the network with betweenness-centrality equally showed that some books seem very influential. 
+		The eigenvector-centrality scores though contradicted this. However, it still seems clear that some books in 
+		the network are very influential. 
+	<br/>The next approach to investigating the network we used was community detection. One hypothesis was that books 
+		recommend books within the same genre. Here it was seen that when communities were partitioned on genre in the 
+		full graph did indicate our hypothesis was true, but it also indicated that some very influential nodes don't 
+		represent their genre in the optimal communities. We therefore created a sub-graph, where the nodes in the top 
+		1 percentile degree was removed. This even further indicated that books do tend to recommend books within the 
+		same genre more than books of different genres. </p>
+
+	<p> Next, the reviews of each book were taken into account. To get two groups to compare, books from a very poorly 
+		rated list of books was also scraped. First, a TFIDF analysis was performed between two documents; one with 
+		all the tokens from the reviews on the positive list, and one with the tokens from the reviews on the negative 
+		list. 
+	<br/> The result was illustrated using word clouds. The intuition was, that were more prominent in the positive list 
+		than the negative list would be very positive words and opposite for words originating from the negative list. 
+		This was not the case. Instead, the analysis seemed to pick up on highly book specific words indicating that 
+		descriptive polar words where present in both documents. 
+	<br/> Since the two groups differed as being highly rated versus low rated books, a clear distinction on sentiment in 
+		the reviews was also expected. Finding the sentiment of each reviews and meaning over the 15 reviews acquired 
+		for each book did show a separation of distribution of sentiment for the two groups. 
+	<br/> It did also indicate overlapping sentiment, meaning that some books from the positive list scored a rather 
+		negative sentiment and some books from the negative list scored positively. 
+	<br/> This led to the creation of two new groups, where a threshold for high and low sentiment respectively was set, 
+		and all books regardless of origin scoring above or below these thresholds were classified as either positive 
+		book or negative book. 
+	<br/>Diving into the most positive and negative rated books and investigating their sentiment in reviews showed that the 
+		sentiment analysis had in fact managed to pick up the general sentiment of a review. A TFIDF analysis was once 
+		more performed on this division of books, and a better intuitive wordclouds appeared. They were though still very 
+		book specific and some of the highest scoring words referred to specific authors or characters. </p>
+
+	<p> Lastly, an investigation of correlations between some of the parameters was performed. This indicated a slight 
+		positive correlation between the rating of a book and the sentiment score of their reviews. It was though not 
+		as prevalent as first hypothesized. 
+	<br/> No correlation was found between the degree and the sentiment of the reviews for a book, dismissing the idea that 
+		if a book is recommended often, then the sentiment in the reviews is also high. 
+	<br/>Last correlation investigated was a correlation between rating and the logarithm of the rating count. Here a 
+		clear positive correlation was seen indicating a high rating count gives a high rating. The data is though 
+		biased since the books chosen are very popular books conditioning them to have both a higher rating and a higher 
+		rating count. </p>
+
+	<p> Overall, the analysis performed in this project showed, that few books are recommended often, making them very 
+		influential in the literary society. Books recommended by these books therefore hold a higher influence themselves.
+		Further, it was showed that TFIDF and sentiment analysis on reviews of books, was skewed by the fact that the 
+		reviews themselves often contain quotes or descriptions of the book reviewed. </p>
+
+</div>  
 <!-- ************* Info on code page ************* -->
 <div id="Code" class="tabcontent">
 	<div class="row">
