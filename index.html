@@ -396,30 +396,32 @@ div.c {
 	
 	<p> In the table below we see the 10 nodes with highest degree and the corresponding measures. </p>
 	<h3> insert table </h3>
-	<p> Some interesting remarks can be made from the table above. Looking at entry 8 we see that even though it has 
-		a smaller degree than 6 the betweenness centrality meassure is almost 10 times bigger. This indicates that 
-		"The Elephant Tree" tends to be recommeneded through fewer iterations than "Watership Down" do. Further, 
-		it is noticed that "The Elephant Tree" at entry 8 has a higher eigenvector centrality than all others on the list. 
-		This shows that "The Elephant Tree" recommends books that themselves are recommended OBS OBS. </p>
+	<p> A few interesting remarks can be made from the table above. Looking at entry 8 we see that even though it has a 
+		smaller degree than entry 6 the betweenness centrality measure is almost 10 times bigger. 
+		 <br />This indicates that "The Elephant Tree" tends to be recommended through fewer iterations than 
+		"Watership Down" do. Further, it is noticed that "The Elephant Tree" at entry 8 has a higher eigenvector-centrality 
+		than all others on the list. This shows that the books that recomends "The Elephant Tree" are them self recomended 
+		a lot. </p>
 	
 	<h3> Communities based on genre </h3>
 	<p> We have now seen that some books does get recomended much more than the average book and therefore could be classified as 
 		highly influential in the literary society. But now lets turn our attention to investigate if the network contains 
 		clear groups - in network theory called communities. Our hypothesis was that a book is more likely to be recomended
 		by another book if they are in the same genre, and thus each genre would be a small community in the network. </p>
-	<p> From the list of books we have 66 different genres. However many of the genres consists of very few books. 
-		We have therefore 
-		only considered the 15 largest and collected the books in the others in a new genre called "Miscellaneous". </p>
-	<p> With the updated genrelist, we have investigate how well our hyphothesis holds using a modularity score. This is a score 
+	<p> From the list of books we have 66 different genres. However as mentionedmany of the genres consists of very few books. 
+		We have therefore only considered the 15 largest and collected the books in the others in a new genre called 
+		"Miscellaneous". </p>
+	<p> With the updated genrelist, we have investigated how well our hyphothesis holds using a modularity score. This is a score 
 		ranging from -1 to 1 indicating how well the hypothesized communities, actually are small communities in the network. 
 	 	The closer to 1 the better the partition is. </p>
-	<p> Partitioning on genre the modularity score for the network is <u> 0.53 </u>.  </p>
+	<p> Partitioning on genre the modularity score for the network is <u> XXX </u>.  </p>
 	<p> This is considered a high score, but to actually tell something about how good partitioning on genre is, you must investigate 
 		how well it is possible to partition your network. There are several algorithms that does this. One of them is the louvrain algorithm, 
 		which based on the network identifies the best fitting communities. </p>
 	<p> From the confusion matrix we see that the algorithm does output communities that are consistent with the genres 
 		and thus genre seems like a good representative of communities, considering the network. We do, however, see that the 
-		modularity score is increased a lot (froom 0.33 to 0.68) when using the Louvrain algorithm. </p>
+		modularity score is increased a lot (froom XXX to XXX) when using the Louvrain algorithm, which suggest that some 
+		influencial nodes don't represent their genre in the optimal communities.. </p>
 	
 	<img src="Images/usa_mask.jpg" alt="Confusion matrix (image)" class="smallimage" > 
 	
@@ -429,9 +431,9 @@ div.c {
 		
 	<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="Code/Plots/G_degree_new.html" height="400" width=60%></iframe> 
 	
-	<p> On this network it is very clear to se that there are communities based on genre. To say that books generally 
-		recommends books within the same genre and therefore to some extend limits readers within a sub-category, is 
-		therefore true. </p>
+	<p> On this network it is very clear to se that there are communities based on genre, which is supported by an 
+		increased modularity. To say that books generally recommends books within the same genre and therefore to 
+		some extend limits readers within a sub-category, is not wrong. </p>
 
 </div>	
 	
@@ -470,9 +472,7 @@ div.c {
 			is also an indicator for how influential a node is. A node gets a high eigenvector centrality score 
 			if its neighboring node also have a high score. Very interestingly the illustration shows that the network does not
 			have any nodes scoring very high eigenvector centrality. This is because almost all books recomend the same books, and 
-			thus acording to eigenvector centrality all the books have equal influence, which is though not true (see degree and 
-			betweenness centrality).
-		</p>
+			thus acording to eigenvector centrality all the books have equal influence. </p>
 	</div>	 
   <h3>Network</h3>
   <p>Text.</p> 	
